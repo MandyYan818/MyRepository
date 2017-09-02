@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+
+        .wrapper1{
+            width:670px;
+            height:240px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        ol{
+            position: absolute;
+            right: 0;
+            bottom: 10px;
+            width: 190px;
+        }
+        .wrapper1 li{
+            list-style: none;
+        }
+        .wrapper1 ol li{
+            float: left;
+            width:20px;
+            height: 20px;
+            margin: 0 5px;
+            color: #fff;
+            text-align: center;
+            border-radius: 50%;
+            cursor: default;
+            background-color: #abc;
+        }
+        ol li.current{
+            background-color: pink;
+        }
+    </style>
+    <script src="jquery-1.11.1.min.js"></script>
+    <script language="JavaScript">
+        $(function(){
+            $(".wrapper1 ol li").mouseenter(function(){
+                $(this).addClass("current").siblings().removeClass("current");
+                $(".wrapper1 ul li").eq($(this).index()).fadeIn().siblings().fadeOut();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="wrapper1">
+        <ul>
+            <li><img src="image/1.jpg"/></li>
+            <li><img src="image/2.jpg"/></li>
+            <li><img src="image/3.jpg"/></li>
+            <li><img src="image/4.jpg"/></li>
+            <li><img src="image/5.jpg"/></li>
+            <li><img src="image/6.jpg"/></li>
+        </ul>
+
+        <ol>
+            <li class="current">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ol>
+    </div>
+</body>
+</html>
