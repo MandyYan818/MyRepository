@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+
+       .main-body{
+         padding: 0;
+         width: 300px;
+         min-height: 800px;
+         margin: 0 auto;
+         vertical-align: middle;
+         text-align: center;
+      }
+      .header{
+         padding: 0;
+         text-align: center;
+         white-space: normal;
+      }
+      .header .header_title{
+         margin: 30px 0 20px;
+      }
+      .nav-slider{
+         text-align: center;
+         margin-bottom: 10px;
+      }
+      .nav-slider a{
+         
+         font-size: 18px;
+         width: 4em;
+         line-height: 35px;
+      }
+      .nav-slider a.active{
+         color: #0f88eb;
+      }
+      .group-inputs{
+         margin-bottom: 20px;
+      }
+      .group-inputs span{
+         color: #999;
+      }
+      
+      .input-wrapper{
+         margin: 0 auto;
+      }
+      .input-wrapper input{
+         width:298px ;
+         height:47px ;
+         padding: 1px 0;
+         border: 1px solid #d5d5d5;
+         border-radius: 3px;
+         font-size: 14px;
+      }
+      .Wdate{
+        text-align:center;
+        margin-bottom: 15px;
+     }
+      .sex-input{
+         width:298px ;
+         border: 1px solid #d5d5d5;
+         border-radius: 3px;
+         font-size: 14px;
+         text-align: center;
+         margin-top: 10px;
+      }
+
+      .button-wrapper{
+         margin-top: 15px;
+         background: #0f88eb;
+         border-radius: 3px;
+         line-height: 41px;
+         color: #fff;
+      }
+      .button-wrapper input{
+         display: block;
+         padding: 0;
+         width: 100%;
+         font-size: 15px;
+         text-align: center;
+         cursor: pointer;
+      }
+      .agreement-tip{
+        margin-top: 21px;
+        font-size: 13px;
+        text-align: center;
+        color: #999;
+      }
+	  
+	  

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+   <meta charset="utf-8">
+   <title>知乎-与世界分享你的知识、经验和见解</title>
+   <link rel="stylesheet" type="text/css" href="css/index.css">
+   <script type="text/javascript" src="My97DatePicker/WdatePicker.js"></script>
+
+</head>
+<body>
+
+   <div class="main-body">
+
+     <div class="header">
+   	  <div class="header_logo">
+           <img src="zhihu_logo.png">  
+        </div>
+   	  <div class="header_title">
+         与世界分享你的知识、经验和见解
+   	  </div>
+     </div>
+
+     <div class="nav-slider">
+   	     <a href="zhihu_signup.html">注册</a>
+         <a class="active" href="#zhihu_signin">登录</a>
+     </div>
+
+     <div class="signup-form">
+     <form action="" method="post">
+         <div class="group-inputs">
+             
+             <div class="email input-wrapper">
+                 <input name="email" required="" id="email" placeholder="邮箱" type="text" onBlur="check()" />
+             </div>
+             <div class="input-wrapper">
+                 <input required="" id="pwd" placeholder="密码（不少于6位）" type="password" />
+             </div>
+             
+         </div>
+
+         <div class="button-wrapper">
+             <input type="submit" name="button" value="登录"
+             onclick="return check();" />
+         </div>
+      </form>
+
+      <script type="text/javascript">                 
+
+          function check() {
+              var email=document.getElementById("email").value;
+              var email_reg =  /^\w+@\w+\.(com|cn|gov)$/; 
+              var pwd =document.getElementById("pwd").value;
+              var pwd_reg = /^[0-9a-zA-Z]+$/;
+
+              if (email_reg.test(email) == false)
+              {     
+                  console.log("邮箱格式错误！");  
+                  return false;   
+              }else if(pwd.length<6){
+                  console.log("密码(不少于6位)")
+                  return false;
+              }else if(!pwd_reg.test(pwd)){
+                  console.log("密码只能由数字和字母组成")
+                  return false;
+              }else{
+                  alert("登录成功")
+                  return true;
+              }
+
+          }
+      </script>
+   
+        <p class="agreement-tip">点击[注册]按钮，即代表你同意《知乎协议》</p>
+     </div>
+
+   </div>
+</body>
+</html>
