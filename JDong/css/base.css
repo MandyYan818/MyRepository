@@ -51,6 +51,7 @@ s,i,em{font-style:normal;text-decoration:none;}
     display:none
 }
 
+
 /*头部导航开始*/
 .shortcut {
     height: 30px;
@@ -215,37 +216,54 @@ s,i,em{font-style:normal;text-decoration:none;}
 	margin-left: 6px;
 }
 
+.navitems {
+	width: 680px;
+	height: 44px;
+	float: left;
+}
+.navitems li {
+	float: left;
+}
+.navitems li.new {
+	background: url(../images/new.jpg) no-repeat right top;
+}
+.navitems li a {
+	display: block;
+	color: #333;
+	font:400 15px/44px "微软雅黑";
+	padding:0 20px;
+}
+.navitems li a:hover {
+	color: #B1191A;
+}
+.bike {
+	width: 140px;
+	height: 44px;
+	background:url(../images/bike.jpg) no-repeat;
+	float: right;
+}
+.bike a {
+	display: block;
+	height: 44px;
+}
+
 /*nav 部分*/
 
 .jd-nav {
     width: 100%;
-    height: 44px;
-    border-bottom: 2px solid #B1191A;
+    height: auto;
+
 }
 .dropdown {
     width: 210px;
     height: 44px;
     float: left;
+	margin-right:5px;
     position: relative;
     z-index: 10;
     overflow: visible;
 }
-.dropdown .dt {
-    height: 44px;
-}
-.dropdown .dt a {
-    display: block;
-    height: 44px;
-    font: 400 15px/44px "microsoft yahei";
-    background-color: #B1191A;
-    color: #fff;
-    padding-left: 10px;
-}
-.dropdown .dd {
-    height: 465px;
-    background-color: #C81623;
-    margin-top: 2px;
-}
+
 .dropdown .items {
     height: 31px;
     line-height: 31px;
@@ -265,37 +283,47 @@ s,i,em{font-style:normal;text-decoration:none;}
     font-weight: 600;
 
 }
-.navitems {
-    width: 680px;
-    height: 44px;
-    float: left;
+
+.dropdown .dropdown_left {
+	float: left;
+	height: 465px;
+	margin-top: 2px;
+	background-color: #666;
 }
-.navitems li {
-    float: left;
-}
-.navitems li.new {
-    background: url(../images/new.jpg) no-repeat right top;
-}
-.navitems li a {
-    display: block;
-    color: #333;
-    font:400 15px/44px "微软雅黑";
-    padding:0 20px;
-}
-.navitems li a:hover {
-    color: #B1191A;
-}
-.bike {
-    width: 140px;
-    height: 44px;
-    background:url(../images/bike.jpg) no-repeat;
-    float: right;
-}
-.bike a {
-    display: block;
-    height: 44px;
+.dropdown .dropdown_right{
+    width:400px;
+    height:465px;
+    color:#666;
+    background-color: white;
 }
 
+  .lunbo{
+	float:left;
+}
+ .lunbo ol{
+	  position: absolute;
+	  bottom:5px;
+	  width:190px;
+	  margin-left:300px;
+	  margin-bottom:90px;
+
+  }
+   .lunbo ol li{
+	   width:20px;
+	   height:20px;
+	   float: left;
+	   border-radius:50%;
+	   margin:0 5px;
+	   background-color: white;
+  }
+.lunbo .current{
+	   background-color: red;
+   }
+
+
+
+
+/*底部开始*/
 
 .slogen{
 	padding:20px 0;
