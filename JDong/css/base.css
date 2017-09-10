@@ -255,7 +255,7 @@ s,i,em{font-style:normal;text-decoration:none;}
 
 }
 .dropdown {
-    width: 210px;
+    width: 200px;
     height: 44px;
     float: left;
 	margin-right:5px;
@@ -263,39 +263,64 @@ s,i,em{font-style:normal;text-decoration:none;}
     z-index: 10;
     overflow: visible;
 }
-
-.dropdown .items {
-    height: 31px;
-    line-height: 31px;
-    border-left: 1px solid #B61D1D;
-    padding-left: 10px;
-    color: #fff;
-    font-size: 15px;
-    font-family:"微软雅黑";
-}
-.dropdown .items h3 {
-    float: left;
-}
-.dropdown .items span {
-    float: right;
-    margin-right: 15px;
-    font-family: "宋体";
-    font-weight: 600;
-
-}
-
 .dropdown .dropdown_left {
 	float: left;
 	height: 465px;
 	margin-top: 2px;
 	background-color: #666;
 }
-.dropdown .dropdown_right{
-    width:400px;
-    height:465px;
-    color:#666;
-    background-color: white;
+.dropdown .dropdown_left li {
+    height: 31px;
+    line-height: 31px;
+    padding-left: 10px;
+    color: #fff;
+    font-size: 15px;
+    font-family:"微软雅黑";
 }
+.dropdown .dropdown_left h3 {
+    float: left;
+}
+.dropdown .dropdown_left span {
+    float: right;
+    margin-right: 15px;
+    font-family: "宋体";
+    font-weight: 600;
+}
+
+
+.dropdown .dropdown_right{
+    float: left;
+	width:300px;
+    height:465px;
+	position: absolute;
+	left:180px;
+	margin-top: 2px;
+    background-color: white;
+	display: none;
+}
+.dropdown .dropdown_right .item1{
+	float: left;
+	width:300px;
+	height:465px;
+	position: absolute;
+	margin-top: 2px;
+	background-color: white;
+}
+
+.dropdown .dropdown_right li {
+	height: 31px;
+	line-height: 31px;
+	padding-left: 10px;
+	color: #666;
+	font-size: 13px;
+	font-family:"微软雅黑";
+}
+.dropdown .dropdown_right span {
+	margin-right: 15px;
+	font-family: "宋体";
+	font-weight: 600;
+}
+
 
   .lunbo{
 	float:left;

@@ -119,27 +119,58 @@
      <div class="w">
        <div class="dropdown">
 
-         <div class="dropdown_left">
-             <div class="items"><h3>家用电器</h3><span>></span></div>
-             <div class="items">手机、数码、京东通信<span>></span></div>
-             <div class="items"><h3>电脑、办公</h3><span>></span></div>
-             <div class="items"><h3>家用电器</h3><span>></span></div>
-             <div class="items">手机、数码、京东通信<span>></span></div>
-             <div class="items"><h3>电脑、办公</h3><span>></span></div>
-             <div class="items"><h3>家用电器</h3><span>></span></div>
-             <div class="items">手机、数码、京东通信<span>></span></div>
-             <div class="items"><h3>电脑、办公</h3><span>></span></div>
-             <div class="items"><h3>家用电器</h3><span>></span></div>
-             <div class="items">手机、数码、京东通信<span>></span></div>
-             <div class="items"><h3>电脑、办公</h3><span>></span></div>
-             <div class="items"><h3>家用电器</h3><span>></span></div>
-             <div class="items">手机、数码、京东通信<span>></span></div>
-             <div class="items"><h3>电脑、办公</h3><span>></span></div>
-         </div>
+         <ul class="dropdown_left">
+             <li class="items1"><h3>家用电器</h3><span>></span></li>
+             <li class="items">手机、数码、京东通信<span>></span></li>
+             <li class="items"><h3>电脑、办公</h3><span>></span></li>
+             <li class="items"><h3>家用电器</h3><span>></span></li>
+             <li class="items">手机、数码、京东通信<span>></span></li>
+             <li class="items"><h3>电脑、办公</h3><span>></span></li>
+             <li class="items"><h3>家用电器</h3><span>></span></li>
+             <li class="items">手机、数码、京东通信<span>></span></li>
+             <li class="items"><h3>电脑、办公</h3><span>></span></li>
+             <li class="items"><h3>家用电器</h3><span>></span></li>
+             <li class="items">手机、数码、京东通信<span>></span></li>
+             <li class="items"><h3>电脑、办公</h3><span>></span></li>
+             <li class="items"><h3>家用电器</h3><span>></span></li>
+             <li class="items">手机、数码、京东通信<span>></span></li>
+             <li class="items"><h3>电脑、办公</h3><span>></span></li>
+         </ul>
 
 
+          <div class="dropdown_right">
+              <ul class="item1">
+                  <li >电视<span>></span>    曲面电视 超薄电视</li>
+                  <li >空调<span>></span>    柜式空调 中央空调</li>
+                  <li >冰箱<span>></span>    多门 对开门 三门</li>
+                  <li >洗衣机<span>></span>  滚筒洗衣机 迷你洗衣机</li>
+                  <li >生活电器<span>></span>风扇 饮水机</li>
+                  <li >家庭影音<span>></span>家庭影院 迷你音响</li>
+              </ul>
+
+              <ul class="item2">
+                  <li >电视<span>></span>    曲面电视 超薄电视</li>
+                  <li >空调<span>></span>    柜式空调 中央空调</li>
+                  <li >冰箱<span>></span>    多门 对开门 三门</li>
+                  <li >洗衣机<span>></span>  滚筒洗衣机 迷你洗衣机</li>
+                  <li >生活电器<span>></span>风扇 饮水机</li>
+                  <li >家庭影音<span>></span>家庭影院 迷你音响</li>
+              </ul>
+          </div>
+
+         </ul>
 
         </div>
+
+         <script>
+             $(function(){
+                 $(".dropdown_left .items1").mouseenter(function(){
+                     $(".dropdown_right").show().mouseleave(function(){
+                         $(this).hide();
+                     });
+                 });
+             });
+         </script>
 
          <div class="lunbo">
              <ul>
