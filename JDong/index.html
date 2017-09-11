@@ -65,9 +65,17 @@
 <div class="topbanner">  
       <div class="w tp">
          <img src="images/topbanner.jpg" alt=""/>
-         <a href="javascript:;" class="close-banner"></a>
+          <a href="javascript:;" class="close-banner"></a>
       </div>   
 </div>
+
+   <script>
+       $(function () {
+           $(".close-banner").click(function(){
+               $(".topbanner").hide();
+           });
+       });
+   </script>
   
  
 <div class="w clearfix">
@@ -87,8 +95,8 @@
         <span class="icon3">8</span>
     </div>
     <div class="hotwords">
-        <a href="#" class="col-red">11月11天</a>
-        <a href="#">11.11秒杀</a>
+        <a href="#" class="col-red">9月9日</a>
+        <a href="#">09.09秒杀</a>
         <a href="#">买2免1</a>
         <a href="#">12期免息</a>
         <a href="#">智能科技</a>
@@ -172,9 +180,10 @@
              });
          </script>
 
-         <div class="lunbo">
+         <div class="slider">
+         <div class="slider_main">
              <ul>
-                 <li class="lunbo_1"><img src="images/111.jpg"></li>
+                 <li class="slider_main_1"><img src="images/111.jpg"></li>
                  <li><img src="images/222.jpg"></li>
                  <li><img src="images/333.jpg"></li>
                  <li><img src="images/444.jpg"></li>
@@ -191,6 +200,109 @@
                  <li></li>
              </ol>
          </div>
+             <div class="slider_extend">
+                 <a href="https://jiadian.jd.com/"><img src="images/lunbo_1.jpg"></a>
+                 <a href="https://channel.jd.com/food.html"><img src="images/lunbo_2.jpg"></a>
+             </div>
+         </div>
+         <div class="news">
+             <div class="jd-news">
+                 <div class="dt">
+                     <h3>京东快报</h3>
+                     <a href="#">更多></a>
+                 </div>
+                 <div class="dd">
+                     <ul>
+                         <li><a href="#"><span>[特惠]</span>1元秒杀</a></li>
+                         <li><a href="#"><span>[公告]</span>母婴类APP【京东宝宝】上线</a></li>
+                         <li><a href="#"><span>[特惠]</span>美的品牌日 APP嗨购大放价</a></li>
+                         <li><a href="#"><span>[特惠]</span>白条购家电 24期免息！</a></li>
+                     </ul>
+
+                 </div>
+             </div>
+             <div class="lifeservi">
+                 <div class="dt">
+                     <h3>生活服务</h3>
+                 </div>
+                 <div class="dd">
+                     <ul>
+                         <li class="lifeservi-icon1">
+                             <a href="#">
+                                 <i></i>
+                                 <span>话费</span>
+                             </a>
+                         </li>
+                         <li class="lifeservi-icon2">
+                             <a href="#">
+                                 <i></i>
+                                 <span>话费</span>
+                             </a>
+                         </li>
+                         <li class="lifeservi-icon1">
+                             <a href="#">
+                                 <i></i>
+                                 <span>话费</span>
+                             </a>
+                         </li>
+                         <li class="lifeservi-icon1">
+                             <a href="#" class="song">
+                                 <i></i>
+                                 <span>话费</span>
+                             </a>
+                         </li>
+                         <li class="lifeservi-icon1">
+                             <a href="#">
+                                 <i></i>
+                                 <span>话费</span>
+                             </a>
+                         </li>
+                         <li class="lifeservi-icon1">
+                             <a href="#">
+                                 <i></i>
+                                 <span>话费</span>
+                             </a>
+                         </li>
+                         <li class="lifeservi-icon1">
+                             <a href="#">
+                                 <i></i>
+                                 <span>话费</span>
+                             </a>
+                         </li>
+                         <li class="lifeservi-icon1">
+                             <a href="#">
+                                 <i></i>
+                                 <span>话费</span>
+                             </a>
+                         </li>
+                         <li class="lifeservi-icon1">
+                             <a href="#">
+                                 <i></i>
+                                 <span>话费</span>
+                             </a>
+                         </li>
+                         <li class="lifeservi-icon1">
+                             <a href="#">
+                                 <i></i>
+                                 <span>话费</span>
+                             </a>
+                         </li>
+                         <li class="lifeservi-icon1">
+                             <a href="#">
+                                 <i></i>
+                                 <span>话费</span>
+                             </a>
+                         </li>
+                         <li class="lifeservi-icon1">
+                             <a href="#">
+                                 <i></i>
+                                 <span>话费</span>
+                             </a>
+                         </li>
+                     </ul>
+                 </div>
+             </div>
+         </div>
 
 
   </div>
@@ -199,18 +311,22 @@
 
    <script>
        $(function(){
-           $(".lunbo .lunbo_1").show().siblings().hide();
-           $(".lunbo ol li").mouseenter(function(){
+           $(".slider_main .slider_main_1").show().siblings().hide();
+           $(".slider_main ol li").mouseenter(function(){
                $(this).addClass("current").siblings().removeClass("current");
-               $(".lunbo ul li").eq($(this).index()).show().siblings().hide();
+               $(".slider_main ul li").eq($(this).index()).show().siblings().hide();
            });
 
        });
    </script>
 
+
+
+
 <!--  底部开始-->
 
-<!--<div class="jd-footr">
+<div class="jd-footer">
+
   <div class="service">
       <div class="slogen">
       <span class="item slogen1">
@@ -313,7 +429,8 @@
 
     
   </div>
-</div>-->
+  </div>
+    </div>
 
 </body>
 </html>
