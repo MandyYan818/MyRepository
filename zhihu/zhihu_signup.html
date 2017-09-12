@@ -2,7 +2,8 @@
 <html>
 <head lang="en">
    <meta charset="utf-8">
-   <title>知乎-与世界分享你的知识、经验和见解</title>
+   <title>仿知乎注册页面</title>
+    <link rel="shortcut icon" href="favicon.ico" />
    <link rel="stylesheet" type="text/css" href="css/index.css">
    <script type="text/javascript" src="My97DatePicker/WdatePicker.js"></script>
 
@@ -30,8 +31,10 @@
          <div class="group-inputs">
              <div class="input-wrapper">
                  <input name="user" id="user" placeholder="姓名" type="text" />
-                 <input name="email" required="" id="email" placeholder="手机号" type="text" onBlur="check()"/>
+                 <input name="phone" required="" id="phone" placeholder="手机号" type="text" onBlur="check()"/>
+                 <span id="phoneInfo"></span>
                  <input required="" id="pwd" placeholder="密码（不少于6位）" type="password" onBlur="check()"/>
+                 <span id="pwdInfo"></span>
              </div>
              
              <div class="Wdate" >
@@ -61,11 +64,13 @@
       <script type="text/javascript">
 
           function check() {
-              var email =document.getElementById("email").value;
+              var phone =document.getElementById("phone").value;
               var pwd =document.getElementById("pwd").value;
               var reg = /^[0-9a-zA-Z]+$/;
               
-              if (email.length!=11) {
+              if (phone.length!=11) {
+                  document.getElementById('phoneInfo').innerHTML =
+                          '<span style="color:red;">手机号必须为11号!</span>';
                   console.log("手机号必须为11位")
                   return false;
               }else if(pwd.length<6){
@@ -79,6 +84,13 @@
               }
 
           }
+
+          $(function(){
+              $("#phone").blur(function(){
+
+              })
+          })
+
 
           function $(){
             var elements=new Array();
