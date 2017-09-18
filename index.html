@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>颜凤个人小作品</title>
+
+    <style type="text/css">
+        .main{
+            width: 350px;
+            height: auto;
+            margin:0 auto;
+            margin-top:100px;
+            border:3px solid #99CCFF;
+            border-radius:5%;
+            overflow: hidden;
+
+        }
+
+        .main li{
+            list-style:none;
+        }
+
+        .main span{
+            display: block;
+            height:50px;
+            text-align: center;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #99CCFF;
+        }
+        .main span:hover{
+            background-color: #FFCC99;
+        }
+
+        .main a{
+            text-decoration: none;
+            color: #686868;
+            cursor: pointer;
+        }
+        .main a:hover{
+            color:red;
+        }
+
+    </style>
+    <script src="jquery-1.11.1.min.js"></script>
+
+    <script>
+        $(function(){
+            $(".main ul").hide();
+            $(".main span").click(function(){
+                $(".main ul").show();
+
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <div class="main">
+
+            <span>表单部分</span>
+            <ul>
+                <li><a href="zhihu/zhihu_signup.html">仿知乎注册页面</a></li>
+                <li><a href="zhihu/zhihu_signin.html">仿知乎登录页面</a></li>
+            </ul>
+
+            <span>jquery 动画实例</span>
+            <ul>
+                <li><a href="jquery-items/lunbo.html">轮播图</a></li>
+                <li><a href="jquery-items/cengji.html">层级轮播图</a></li>
+                <li><a href="jquery-items/liangce guanggao.html">两侧弹出的广告</a></li>
+                <li><a href="jquery-items/taobao.html">淘宝精品广告</a></li>
+            </ul>
+
+            <span>综合实例</span>
+            <ul>
+                <li><a href="JDong/index.html">仿京东首页</a></li>
+            </ul>
+
+
+    </div>
+</body>
+</html>
