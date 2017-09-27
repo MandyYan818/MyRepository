@@ -12,22 +12,22 @@
 
    <div class="main-body">
 
-     <div class="header">
+     <header>
    	  <div class="header_logo">
            <img src="zhihu_logo.png">  
         </div>
    	  <div class="header_title">
          与世界分享你的知识、经验和见解
    	  </div>
-     </div>
+     </header>
 
      <div class="nav-slider">
    	     <a class="active" href="#zhihu_signup">注册</a>
          <a href="zhihu_signin.html">登录</a>
      </div>
 
-     <div class="signup-form">
-     <form action="" method="post" name="signup-form" id="signup-form">
+
+     <form action="" method="post" name="signup-form" id="signup-form" class="signup-form">
          <div class="group-inputs">
              <div class="input-wrapper">
                  <input name="user" id="user" placeholder="姓名" type="text" />
@@ -35,25 +35,28 @@
                  <span id="phoneInfo"></span>
                  <input required="" id="pwd" placeholder="密码（不少于6位）" type="password" onBlur="check()"/>
                  <span id="pwdInfo"></span>
+
+             </div>
+
+             出生年月：<input type="text" onfocus="WdatePicker({dateFmt:'yyyy年MM月dd日 HH时mm分ss秒'})"
+                         class="Wdate" style="width:210px"/>
+
+             所在城市: <input id="city" list="citys" style="width:220px" />
+                          <datalist id="citys">
+                               <option value="北海" selected="selected">
+                               <option value="杭州">
+                               <option value="南宁">
+                          </datalist>
+
+            <div class="sex-input">
+                 性别：
+                 <input type="radio" value="男" name="sex" id="sex" checked="checked"/>男
+                 <input type="radio" value="女" name="sex" id="sex"/>女
+             </div>
+
              </div>
              
-             <div class="Wdate" >
-                 <input type="text" onfocus="WdatePicker({dateFmt:'yyyy年MM月dd日 HH时mm分ss秒'})" class="Wdate" style="width:300px"/>
-             </div>
-             
-             <div class="sex-input">
-                 男<input type="radio" value="男" name="sex" id="sex" checked="checked">
-                女<input type="radio" value="女" name="sex" id="sex">
-             </div>
-             <span>所在城市</span>
-                 <select class="input-wrapper input"> 
-                          <option value="city" selected="selected">北海</option>
-                          <option value="city">杭州</option>
-                          <option value="city">南宁</option>
-                  </select>
-             </div>
-             
-         </div>
+
 
          <div class="button-wrapper">
              <input type="submit" name="button" value="注册知乎"
@@ -70,13 +73,17 @@
               
               if (phone.length!=11) {
                   document.getElementById('phoneInfo').innerHTML =
-                          '<span style="color:red;">手机号必须为11号!</span>';
+                          '<span class="checkInfo">手机号必须为11号!</span>';
                   console.log("手机号必须为11位")
                   return false;
               }else if(pwd.length<6){
+                  document.getElementById('pwdInfo').innerHTML=
+                          "<span class='checkInfo'>密码(不少于6位)</span>";
                   console.log("密码(不少于6位)")
                   return false;
-              }else if(!reg.test(pwd)){
+              }else if(pwd!=reg.test(pwd)){
+                  document.getElementById('pwdInfo').innerHTML=
+                          "<span class='checkInfo'>密码只能由数字和字母组成</span>";
                   console.log("密码只能由数字和字母组成")
                   return false;
               }else{
@@ -90,7 +97,6 @@
 
               })
           })
-
 
           function $(){
             var elements=new Array();
