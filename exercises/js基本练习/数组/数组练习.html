@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组练习</title>
+</head>
+<body>
+<script>
+    /*//求数组最大值最小值及索引
+     var arr = [3, 1, 9, 5, 8, 5, 4, 2];
+     var max = arr[0];//假设数组中的第一个数为最大值
+     var maxIndex=0;//假设最大值索引为0
+     var min=arr[0];//假设数组中的第一个数为最小值
+     var minIndex=0;
+     for (var i = 1; i < arr.length; i++) {
+     if (max < arr[i]) {
+     max = arr[i];
+     maxIndex=i;
+     }
+     if (min > arr[i]) {
+     min = arr[i];
+     minIndex=i;
+     }
+     }
+     console.log(max);
+     console.log(maxIndex);
+     console.log(min);
+     console.log(minIndex)*/
+
+
+    /*// 输出  |aba|aaa|ab|
+     var arr=["aba","aaa","ab"];
+     var str="";
+     var seperator="|";
+     for(var i=0;i<arr.length;i++){
+     str+=arr[i]+seperator;
+
+     }
+     console.log(str);*/
+
+
+    /*//输出   aba|aaa|ab
+     var arr=["aba","aaa","ab"];
+     var str=arr[0];
+     var seperator="|";
+     for(var i=1;i<arr.length;i++) {
+     str+=seperator+arr[i];
+     }
+     console.log(str);*/
+
+
+   /* // 找到数组中的非0项放入新数组
+    var arr=[2,0,4,1,0,7,5,0,4,3,9,4];
+    var arrNew=[];
+    var len=arr.length;
+    for(var i=0;i<len;i++){
+        if(arr[i]!=0){
+            arrNew[arrNew.length]=arr[i];
+        }
+    }
+    console.log(arrNew);*/
+
+
+    /*  //翻转数组
+    var arr=[2,0,4,1,0,7,5];
+    var arrNew=[];
+    arrNew=arr.reverse();
+    alert(arrNew);
+    */
+
+    /*var arr=[2,0,4,1,0,7,5];
+     var arrNew=[];
+     for(i=arr.length-1;i>=0;i--){
+     arrNew[arrNew.length]=arr[i];
+     }
+     console.log(arrNew);*/
+
+    var arr=["ni","hao","wo","shi","nide","friend"];
+    var newArr=[];
+    for(var i=0;i<arr.length;i++){
+        newArr[i]=arr[i].length;
+    }
+    console.log(newArr);
+
+
+
+</script>
+
+</body>
+</html>

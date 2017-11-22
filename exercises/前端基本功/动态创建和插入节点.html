@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态创建和插入节点</title>
+</head>
+<body>
+<div id="demo">
+
+</div>
+</body>
+<script>
+    var demo=document.getElementById("demo");
+    var childrens=demo.children;
+    //创建节点
+    var firstDiv=document.createElement("h1");
+    //添加节点
+    demo.appendChild(firstDiv);
+    var test1=document.createElement("div");
+    var test2=document.createElement("h2");
+    demo.insertBefore(test1,childrens[0]);
+    demo.insertBefore(test2,childrens[1]);
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建表格</title>
+</head>
+<body>
+
+</body>
+<script>
+    var data=[
+        {name:'jim1',age:19,gender:'male'},
+        {name:'jim2',age:29,gender:'female'},
+        {name:'jim3',age:39,gender:'male'},
+        {name:'jim4',age:49,gender:'male'},
+        {name:'jim5',age:59,gender:'male'}
+    ];
+    //创建表格
+    //1、创建table+tbody+thead
+    //2、创建tr+th
+    //3、创建每一行的hr+td
+    //4、加到页面中
+
+    var table=document.createElement('table');
+    var thead=document.createElement('thead');
+    var tbody=document.createElement('tbody');
+    table.appendChild(thead);
+    table.appendChild(tbody);
+</script>
+</html>

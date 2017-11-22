@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>引用类型作为函数参数</title>
+</head>
+<body>
+
+</body>
+<script>
+    var o = {name: '张三', age: 19, gender: '男'};
+    o.copy = function (obj) {
+        //将this中的所有成员赋值给obj
+        //obj={};
+        for (var k in this) {
+            obj[k] = this[k];
+        }
+    };
+    var p1 = {};
+    o.copy(p1);
+</script>
+</html>

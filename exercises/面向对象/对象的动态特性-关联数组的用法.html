@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关联数组的用法</title>
+</head>
+<body>
+
+</body>
+<script>
+    var o={
+        name:'张三',
+        sayHello: function () {
+            console.log('你好，我的名字是'+this.name);
+        }
+    };
+    //o.sayHello();
+    //console.log(o.name);
+    //o['sayHello']();
+    //console.log(o['name']);
+
+    for (var k in o){
+        if(typeof o[k]=='function'){
+            o[k]();
+        }else {
+            console.log('log:'+o[k]);
+        }
+    }
+</script>
+</html>

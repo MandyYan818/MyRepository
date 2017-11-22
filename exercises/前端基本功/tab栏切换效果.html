@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab栏切换效果</title>
+    <style>
+        .box{
+            width:400px;
+            margin:100px auto;
+        }
+        .bottom div{
+            width:400px;
+            height: 200px;
+            display: none;
+            background-color: pink;
+        }
+        .purple{
+            background-color: purple;
+        }
+       .bottom .show{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="top">
+        <button>第一个</button>
+        <button>第二个</button>
+        <button>第三个</button>
+        <button>第四个</button>
+        <button>第五个</button>
+        <button>第六个</button>
+    </div>
+    <div class="bottom" id="divs">
+        <div class="show">1号盒子</div>
+        <div>2号盒子</div>
+        <div>3号盒子</div>
+        <div>4号盒子</div>
+        <div>5号盒子</div>
+        <div>6号盒子</div>
+    </div>
+</div>
+<script>
+    window.onload=function(){
+        var btns=document.getElementsByTagName("button");
+        var divs=document.getElementById("divs").getElementsByTagName("div");
+        for(var i=0;i<btns.length;i++){
+            btns[i].index=i;//难点
+            btns[i].onclick=function(){
+                //让所有的btn类名清空
+                for(var j=0;j<btns.length;j++){
+                    btns[j].className="";
+                    divs[j].className="";
+                }
+                //当前的那个按钮 的添加类名
+                this.className="purple";
+
+                //留下索引号对应的那个
+                divs[this.index].className="show";
+
+            }
+        }
+    }
+</script>
+</body>
+</html>

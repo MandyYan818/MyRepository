@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>深拷贝与浅拷贝</title>
+</head>
+<body>
+<script>
+    var car={name: '法拉利'};
+    var p={name: '张三',age:19,car:car};
+
+    //var pCopy=p; //这个不是拷贝，没有对对象做任何拷贝行为
+    var pCopy={};
+    pCopy.name= p.name;
+    pCopy.age= p.age;
+    pCopy.car= p.car;
+</script>
+
+</body>
+</html>

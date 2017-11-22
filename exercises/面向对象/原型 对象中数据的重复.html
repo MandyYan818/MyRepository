@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型 对象中数据的重复</title>
+</head>
+<body>
+原型prototype
+由于js是解释执行的语言，那么在代码中出现函数与对象如果重复执行，会创建多个副本
+
+1、那么在代码中重复执行的代码容易出现重复的对象
+2、创建一个Person构造函数，以创建对象，要求有name age gender和sayHello
+4、传统的构造方法的定义方式会影响性能，容易造成多个对象有多个方法副本，应该将方法
+单独抽取出来，让所有的对象共享
+5、可以考虑将方法全部放到外面但是有安全隐患
+     在开发中会引入各种框架或库,自定义的成员越多，出现命名冲突的几率越大。
+     可能在开发中会有多个构造函数，每个构造函数应该有多个方法，那么就会变得不容易维护。
+6、任意一个对象都会默认地链接到它的原型中
+     创建一个函数，会附带地创建一个特殊的对象。该对象使用函数.prototype引用，称其为函数的
+原型属性。
+    每一个由该函数作为构造函数创建的对象，都会默认地链接到该对象上。
+
+传统的构造函数的问题
+     function Foo(){
+        this.sayHello=function(){
+        }
+     }
+1、由于对象是调用'new Foo()'所创建出来的，因此每一个对象在创建的时候，函数
+sayHello都会被创建一次
+2、那么每一个对象都含有一个独立的、不同的、但是功能逻辑一样的函数。比如'{}=={}'
+3、在代码中方法就会消耗性能，最典型的资源就是内存。
+4、这里最好的方法就是将函数体放在构造函数之外，那么在构造函数中只需要引用该函数即可。
+function sayHello(){}
+function Foo(){
+    this.say=sayHello;
+}
+5、但是上述解决会在开发中变得困难：引入框架危险，代码繁冗不好维护，解决方法就是外面的函数如果不占用名字，
+而且在函数外面
+6、每一个函数在定义的时候，有一个神秘对象会被创建出来
+7、每一个由构造函数创建的对象都会默认地链接到该神秘对象上。
+var f1=new Foo();
+var f2=new Foo();
+f1.sayHello();//如果f1没有sayHello，那么就会在Foo.prototype中去找
+f2.sayGoodBye();//如果f2没有该方法，那么就会在Foo.prototype中去找
+8、由构造函数创建出来的众多对象共享一个对象，就是构造函数.prototype
+9、只需要将共享的东西，重复会多占用内存的东西放到构造函数.prototype中，那么所有的
+对象就可以共享了。
+function Foo(){}
+Foo.prototype.sayHello
+</body>
+<script>
+   /* var arr=[];
+    for (var i=0;i<2;i++){
+        arr.push({});
+        arr.push(function (){});
+    }
+    console.log(arr[0]==arr[2]);//false
+    console.log(arr[1]==arr[3]);//false
+
+    function creatPerson(){
+        var o={};
+        o.sayHello()=function (){
+            console.log('你好');
+        };
+        return o;
+    }
+    var o1=creatPerson();
+    var o2=creatPerson();
+    console.log(o1==o2);//false
+    console.log(o1.sayHello==o2.sayHello);//false  */
+
+
+    function Person(name,age,gender){
+        this.name=name;
+        this.age=age;
+        this.gender=gender;
+        this.sayHi=function (){
+            console.log('你好'+this.name);
+        }
+    }
+    var p1=new Person('张三',19,'male');
+    console.log(p1);
+
+    function Foo(){}
+    Foo.prototype.sayHello=function(){
+        console.log('你好');
+    };
+    var f1=new Foo();
+   f1.sayHello();
+    var f2=new Foo();
+    f2.sayHello();
+    console.log(f1.sayHello()===f2.sayHello());
+
+</script>
+</html>

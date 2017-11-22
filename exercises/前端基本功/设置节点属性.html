@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设置节点属性</title>
+</head>
+<body>
+<div class="one" id="demo"></div>
+</body>
+<script>
+    var demo=document.getElementById("demo");
+    alert(demo.getAttribute("id"));
+    alert(demo.getAttribute("class"));
+    demo.setAttribute("title","鼠标经过");
+    alert(demo.getAttribute("title"));
+    demo.removeAttribute("title");
+</script>
+</html>

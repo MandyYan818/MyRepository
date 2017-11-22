@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>微博发布框复习</title>
+    <style>
+
+        .box{
+            width: 600px;
+            height: auto;
+            position: absolute;
+            left:50%;
+            top: 50%;
+            margin:-150px 0 0 -300px;
+            border: 1px solid #cccccc;
+            padding:30px 0;
+        }
+        textarea{
+            width: 450px;
+            height: 200px;
+            resize: none;//防止用户拖动
+        }
+        .box li{
+            width: 450px;
+            line-height: 30px;
+            list-style: none;
+            border:1px dotted #cccccc;
+            margin-left:40px;
+        }
+        .box li a{
+            float: right;
+        }
+
+    </style>
+    <script>
+        window.onload=function(){
+            function $(id){
+                return document.getElementById(id);
+            }
+            //获取对象
+            var btn=$("btn1");
+            var txt=$("weibo_input");
+            var ul=document.createElement("ul");
+            btn.parentNode.appendChild(ul);
+            btn.onclick=function(){
+                if (txt.value==""){
+                    alert("输入不能为空");
+                    return false;//终止函数执行
+                }
+                var newli=document.createElement("li");
+                newli.innerHTML=txt.value+"<a href='javascript:;'>删除</a>";
+                txt.value="";//清空表单
+                var lis=ul.children;//获得li的个数
+                //if else这个片段使得我们新发布的内容最上显示
+                if (lis.length==0){
+                    ul.appendChild(newli);//ul的后面追加
+                }else {
+                    ul.insertBefore(newli,lis[0]);//每次生成的新的li放在前一个
+                }
+                var as=document.getElementsByTagName("a");
+                for (var i=0;i<as.length;i++){
+                    as[i].onclick=function(){
+                        ul.removeChild(this.parentNode);//a的父节点是li
+                    }
+                }
+            }
+        };
+        /*window.onload=function(){
+            function $(id){
+                return document.getElementById(id);
+            }
+            var weibo=$("weibo");
+            var btn1=$("btn1");
+            var weibo_input=$("weibo_input");
+            btn1.onclick=function(){
+                var newDiv=document.createElement("div");
+                newDiv.setAttribute("class","content");
+                newDiv.innerHTML=weibo_input.value;
+                weibo.appendChild(newDiv);
+                var btn2=document.createElement("button");
+                btn2.setAttribute("class","btn2");
+                btn2.setAttribute("id","btn2");
+                weibo.appendChild(btn2);
+            };
+            $("btn2").onclick=function(){
+
+            }
+        }*/
+    </script>
+</head>
+<body>
+<div class="box" id="box">
+    微博发布:
+    <textarea class="weibo_input" id="weibo_input" cols="30" row="10"></textarea>
+    <button id="btn1" class="btn1">发布</button>
+
+</div>
+</body>
+</html>

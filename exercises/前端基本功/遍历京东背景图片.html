@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>遍历京东背景图片</title>
+    <style>
+        .lunbo{
+            width:670px;
+            height:auto;
+            margin:50px auto;
+            position: relative;
+
+        }
+        .lunbo ul li{
+            display:none;
+        }
+
+        .lunbo li{
+            list-style:none;
+        }
+        .lunbo ol{
+            width:250px;
+            height:40px;
+            margin-left:220px;
+            position: absolute;
+            bottom: 5px;
+        }
+        .lunbo ol li{
+            width:25px;
+            height:25px;
+            border-radius: 50%;
+            float: left;
+            margin:5px;
+            text-align: center;
+            color: black;
+            cursor: pointer;
+            background-color: pink;
+
+        }
+       .lunbo ol li.current{
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+<div class="lunbo">
+    <ol id="lunbo_ol">
+        <li class="current">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ol>
+    <ul  id="lunbo_ul">
+        <li style="display: block"><img src="images/1.jpg"/></li>
+        <li><img src="images/2.jpg"/></li>
+        <li><img src="images/3.jpg"/></li>
+        <li><img src="images/4.jpg"/></li>
+        <li><img src="images/5.jpg"/></li>
+        <li><img src="images/6.jpg"/></li>
+    </ul>
+</div>
+<script>
+    window.onload=function() {
+        var lunbo_ol = document.getElementById("lunbo_ol").getElementsByTagName("li");
+        var lunbo_ul = document.getElementById("lunbo_ul").getElementsByTagName("li");
+        for (var i = 0; i < lunbo_ol.length; i++) {
+            lunbo_ol[i].index = i;
+            lunbo_ol[i].onmouseover = function () {
+                for (var j = 0; j < lunbo_ol.length; j++) {
+                    lunbo_ol[j].className = "";
+                }
+                this.className = "current";
+
+                for (var i = 0; i < lunbo_ul.length; i++) {
+                    lunbo_ul[i].style.display = "none";
+                }
+                lunbo_ul[this.index].style.display = "block";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

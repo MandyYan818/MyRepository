@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>封装自己的class类</title>
+    <style>
+        .demo{
+            width: 50px;
+            height: 50px;
+            border:1px solid #cccccc;
+            background-color: pink;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            //封装自己的class类名
+            function getClass(classname){
+                //如果浏览器支持，则直接返回
+                if (document.getElementsByClassName){
+                    return document.getElementsByClassName(classname);
+                }
+                //不支持的浏览器
+                var arr=[];//用于存放满足的数组
+                var dom=document.getElementsByClassName("*");
+                for (var i=0;i<arr.length;i++){
+                    if (dom[i].className==classname){
+                        arr.push(dom[i]);
+                    }
+                }
+                return arr;
+            }
+            console.log(getClass("demo").length);
+        };
+    </script>
+
+    <script>
+        window.onload=function(){
+            //封装自己的class类名
+            function getClass(classname){
+                //如果浏览器支持，则直接返回
+                if (document.getElementsByClassName){
+                    return document.getElementsByClassName(classname);
+                }
+                //不支持的浏览器
+                var arr=[];//用于存放满足的数组
+                var dom=document.getElementsByClassName("*");
+                for (var i=0;i<arr.length;i++){
+                    var txtArr=dom[i].className.split(" ");//分割类名并转换为数组
+                    //["demo","test"];
+                    for (var j=0;j<txtArr.length;j++){
+                        if (txtArr[j]==classname){
+                            arr.push(dom[i]);
+                        }
+                    }
+
+                }
+                return arr;
+            }
+            console.log(getClass("test").length);
+        };
+    </script>
+</head>
+<body>
+<div></div>
+<div class="demo"></div>
+<div></div>
+<div class="test"></div>
+<div class=" test demo"></div>
+<div></div>
+<div></div>
+<div class="demo"></div>
+<div></div>
+<div></div>
+</body>
+</html>

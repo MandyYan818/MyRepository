@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象</title>
+</head>
+<body>
+<script>
+
+    //函数和方法的区别
+    //函数  直接调用的是函数 如alert();
+    //方法  通过对象调用的是方法 如hero.attack();
+    /*var hero = new Object();
+
+     hero.name = "hello";
+     hero.level = 0;
+     hero.diamond = 0;
+     hero.moveLeft = function () {
+     console.log("left");
+     };
+     hero.attack = function (name) {
+     //this 当前这个对象
+     console.log(this.name+"攻击"+name);
+     };
+
+     console.log(hero.name);
+     console.log(hero.level);
+     hero.attack("yf");*/
+
+
+    //对象字面量
+    var a={
+        name:"lf",
+        age:20,
+        sex:1,
+        sayHi:function(){
+            console.log("你好，我是"+this.name);
+        }
+    };
+    console.log(a.name);
+    a.sayHi();
+
+    //创建多个学生对象
+    function creatStudent(name, age, score) {
+        var student = new Object();
+
+        student.name = name;
+        student.age = age;
+        student.score = score;
+        //对象的方法
+        student.sayHi = function () {
+            console.log("你好，我是" + this.name);
+        };
+        //返回对象
+        return student;
+    }
+    var s1 = creatStudent("yf", 18, 100);
+    var s2 = creatStudent("lf", 20, 99);
+    s1.sayHi();
+    s2.sayHi();
+
+
+    printStudentInfo(s1);
+    printStudentInfo(s2);
+
+    function printStudentInfo(stu) {
+        console.log(stu.name);
+        console.log(stu.age);
+        console.log(stu.score);
+        console.log(stu.sayHi());
+    }
+
+</script>
+
+</body>
+</html>

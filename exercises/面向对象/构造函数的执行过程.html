@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>构造函数的执行过程</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*function Person(){
+        this.name='张三';
+        this.age=19;
+        this.gender='男';
+    }
+    var p=new Person();*/
+
+    function Person(name,age,gender){
+        this.name=name;
+        this.age=age;
+        this.gender=gender;
+    }
+    var p=new Person('张三',19,'男');
+    p.name='李四;
+    console.log(p.name);
+</script>
+</html>

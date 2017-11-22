@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function changeArr(arr){
+        var newArr=[];
+        for (var i=0;i<arr.length;i++){
+            if (arr.indexOf(0)==-1){
+                newArr.push(arr[i]);
+            }
+        }
+        for (var j=0;j<arr.length-newArr.length;j++){
+            newArr.push(0);
+        }
+
+        return newArr;
+    }
+    var arr=[0,1,0,3,0,12,1];
+    console.log(changeArr(arr));
+</script>
+</html>

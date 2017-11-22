@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>找出数组中的重复元素</title>
+</head>
+<body>
+<script>
+    /*function duplicates(arr) {
+        var newArray=[];
+        for(var i=0;i<arr.length;i++){
+            for(var j=i+1;j<arr.length;j++){
+                if(arr[i]=arr[j]){
+                    newArray=arr.slice(i);
+
+                }
+            }
+        }
+        return newArray;
+    }
+    var array=[1,2,4,4,3,3,1,5,3];
+    console.log(array.indexOf(3));
+    console.log(duplicates(array));*/
+
+    function duplicates(arr) {
+        var new_arr = arr.sort();//先把arr排序
+        var res = [];//目标容器
+        for (var i = 0; i < new_arr.length; i++) {
+            if (new_arr[i] == new_arr[i + 1] &&
+                    new_arr[i] != new_arr[i - 1]) {//判断是否重复,是否已经放入容器
+                res.push(new_arr[i]);
+            }
+        }
+        return res;
+    }
+    var array=[1,2,4,4,3,3,1,5,3];
+    console.log(duplicates(array));
+
+</script>
+
+</body>
+</html>

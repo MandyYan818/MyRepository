@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型继承总结</title>
+</head>
+<body>
+1、什么是原型
+2、如何使用原型
+    利用点添加成员
+    直接替换添加成员
+3、什么是原型继承
+    实例对象是继承自原型对象的
+    一般的开发方式是：属性交给构造函数，方法交给原型
+4、如何实现
+    混合继承方式：利用混入的方法给原型添加成员，那么实例对象可以继承指定的方法和属性
+
+</body>
+<script>
+    /*
+    //例如要实现一个自定义的集合（数组）
+    //弄一个类型ItcastCollection
+    function ItcastCollection(){}
+    //要提供数组的方法为其添加成员
+    ItcastCollection.prototype=[];  //最好是这种方法实现
+    var arr=new ItcastCollection();
+    arr.push(11);
+    arr.push(22);
+    arr.push(1,2,3,4,5,6,7);
+    //由于数组的方法push是首先将元素添加到数组结尾处，然后将其length属性+1
+    //pop,shift,unshift
+    var str=arr.join('=');
+    alert(str);
+    */
+
+    function ItcastCollection(){}
+    //要提供数组的方法为其添加成员
+    ItcastCollection.prototype=[]; //Array.prototype
+    //ItcastCollection.prototype=Array.prototype;
+    var arr=new ItcastCollection();
+    arr.push(1,3,5,7);
+
+    //我自己定义集合目的是让其像数组一样使用，但是同时有一些数组无法实现的方法
+    //sum()求集合中所有数字的和
+
+    ItcastCollection.prototype.sum=function(arr){
+        var sum=0;
+        for (var i=0;i<arr.length;i++){
+            sum+=arr[i];
+        }
+        return sum;
+
+    };
+    alert(arr.sum(arr));
+
+</script>
+</html>

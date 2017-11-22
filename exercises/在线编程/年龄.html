@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>年龄</title>
+</head>
+<body>
+<script>
+    function isShuixianhua(m,n){
+        for(var i=m;i<=n;i++){
+            var bai=parseInt(i/100);
+            var shi=parseInt(i%100/10);
+            var ge=i%10;
+            var num=Math.pow(bai,3)+Math.pow(shi,3)+Math.pow(ge,3);
+
+            if (i==num){
+                console.log(i+" ");
+            }
+        }
+        return false;
+    }
+
+    console.log(isShuixianhua(300,400));
+
+
+    /*function isChengnian(year,month,date){
+        var day=new Date(),
+             yearNow=day.getFullYear(),
+             monthNow=day.getMonth()+ 1,//getMonth返回一个0 到11的整数值:0代表一月份,1 代表二月分，2代表三月份,依次类推。
+             dateNow=day.getDate();
+
+        if(yearNow-year>18||(yearNow-year==18 && monthNow>month)||
+                (yearNow-year==18 && monthNow==month && dateNow>date)){
+            return true;
+        }else {
+            return false;
+        }
+    }
+    console.log(isChengnian(1999,10,28));*/
+
+</script>
+
+</body>
+</html>

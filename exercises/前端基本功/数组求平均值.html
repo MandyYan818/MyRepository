@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组求平均值</title>
+</head>
+<body>
+<script>
+    var arr=[10,20,30];
+    function avg(array){
+        var len=array.length;
+        var sum=0;
+        for(var i=0;i<len;i++){
+            sum+=array[i];
+        }
+        return sum/len;
+    }
+    console.log(avg(arr));
+</script>
+
+</body>
+</html>

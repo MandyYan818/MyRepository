@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>微博发布框</title>
+    <style>
+
+        .weibo{
+            width: 450px;
+            height: 300px;
+            position: absolute;
+            left:50%;
+            top: 50%;
+            margin:-150px 0 0 -225px;
+            border: 1px solid #cccccc;
+        }
+        .weibo button{
+            position: relative;
+            bottom: -70px;
+            left: -30px;
+        }
+        .weibo_input{
+            width: 380px;
+            height: 140px;
+            position: relative;
+            left: 25px;
+            top:35px;
+            border: 1px solid #cccccc;
+            background-color: #ffffff;
+        }
+        .content{
+            position: relative;
+            top: 40px;
+            left: 25px;
+            width: 280px;
+            height: 20px;
+            overflow: visible;
+            border-bottom: 1px dotted #cccccc;
+            background-color: #ffffff;
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var weibo=document.getElementById("weibo");
+            var btn=document.getElementById("btn");
+            var weibo_input=document.getElementById("weibo_input");
+            btn.onclick=function(){
+                var newDiv=document.createElement("div");
+                newDiv.setAttribute("class","content");
+                newDiv.innerHTML=weibo_input.value;
+                weibo.appendChild(newDiv);
+            }
+            
+        }
+    </script>
+</head>
+<body>
+<div class="weibo" id="weibo">
+
+    <textarea class="weibo_input" id="weibo_input" ></textarea>
+    <button id="btn">发布</button>
+
+</div>
+</body>
+</html>

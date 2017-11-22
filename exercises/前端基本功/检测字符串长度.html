@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符串练习</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*var txt=12345;
+    console.log(typeof (txt+""));
+    console.log(typeof String(txt));
+    console.log(typeof txt.toString());*/
+
+    var txt='abcdefg';
+    console.log(txt.charAt(2));//c
+    console.log(txt.charCodeAt(0));//97
+
+    var text="i miss you 飞";
+    console.log(text.length);//12
+    function getStringLength(str){
+        var len=0;
+        var c=0;
+        for (var i=0;i<str.length;i++){
+            c=str.charCodeAt(i);
+            if (c>=0 && c<=127){
+                len++;
+            }else {
+                len+=2;
+            }
+        }
+        return len;
+    }
+    console.log(getStringLength(text));
+    /*
+    * charAt,获取相应位置字符(参数:字符位置) 与indexOf()对应
+    * charCodeAt,获取相应位置字符Unicode编码(参数：字符位置)
+    * */
+</script>
+</html>

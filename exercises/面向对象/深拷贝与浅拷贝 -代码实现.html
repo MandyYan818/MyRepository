@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>深拷贝与浅拷贝-代码分析</title>
+</head>
+<body>
+<script>
+    //深拷贝
+    var deepCopy=function(){
+        var temp={};
+        for(var k in this){
+            if (typeof this[k]==='object'){
+                temp[k]=this[k].deepCopy();
+            }else {
+                temp[k]=this[k];
+            }
+        }
+        return temp;
+    };
+
+    var car={name:'法拉利'};
+    var p={name:'张三',age:'19',gender:'男',car:car};
+
+    car.deepCopy=deepCopy;
+    p.deepCopy=deepCopy;
+    var newP= p.deepCopy();
+
+    p.name='李四';
+    p.age='20';
+    p.gender='女';
+    p.car='兰博基尼';
+    p.deepCopy=deepCopy;
+
+
+</script>
+
+</body>
+</html>

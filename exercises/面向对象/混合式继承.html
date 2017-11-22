@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>混合式继承</title>
+</head>
+<body>
+继承
+1、最简单的继承就是将别的对象的属性强加到我的身上，那么我就有这个成员了。
+2、利用原型也可以实现继承，不需要在我的身上添加任何成员，只要原型有了，我就有了。
+
+结论：
+将属性、方法利用混入的方法，加到构造函数的原型上，那么构造函数的实例就具有该方法了。
+
+混合式继承复杂描述
+1、new DivTag()用来创建div对象
+2、appendTo() 加到某元素上
+3、扩展
+    img
+    p
+    span
+    a
+    ...
+4、无论方法怎么写，方法是谁调用的，this就是谁
+
+面试题
+1、将字符串中>,<,&,TM,空格,...
+2、逻辑中断
+    // foo=foo||bar;
+    // || 逻辑或，左边如果为真，那么整个表达式的值就是左边的值
+    // || 如果左边的值为假，那么整个表达式的值为右边的值
+    //如果考虑函数参数的时候，一般使用该方法来兼容处理参数
+    div.onclick=function(e){
+        e=e||window.event;
+    };
+3、变量名提升
+
+
+
+
+
+</body>
+<script>
+    /*var Person=function (){};
+    var extend=function(o1,o2){
+        for(var k in o2){
+            o1[k]=o2[k];
+        }
+    };
+    extend(Person.prototype,{
+        run:function (){console.log('跑');},
+        eat:function (){console.log('吃');},
+        sayHello:function (){console.log('吃饱');}
+    });
+    var p1=new Person();
+    var p2=new Person();
+
+    p1.run();
+    p1.eat();
+    p1.sayHello();*/
+
+    //改良后
+    var Person=function (){};
+    Person.prototype.extend=function(o){
+        for(var k in o){
+            this[k]=o[k];
+        }
+    };
+    Person.prototype.extend({
+        run:function (){console.log('跑');},
+        eat:function (){console.log('吃');},
+        sayHello:function (){console.log('吃饱');}
+    });
+    var p1=new Person();
+    var p2=new Person();
+
+    p1.run();
+    p1.eat();
+    p1.sayHello();
+
+</script>
+</html>
