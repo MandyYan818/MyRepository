@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选中文字弹出提示</title>
+    <style>
+        div{
+            width: 400px;
+            height: 200px;
+            margin: 50px;
+        }
+
+        #demo{
+            display: none;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            top:0;
+            left:0;
+        }
+    </style>
+</head>
+<body>
+<span  id="demo"></span>
+<div id="test">我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复
+    制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的
+    文字我要复制的文字我要复制的文字</div>
+<div id="another">我不要的文字我不要的文字我不要的文字我不要的文字我不要的文字我不要的文字我不要的文字我不要的文字我不要
+    的文字我不要的文字我不要的文字我不要的文字我不要的文字我不要的文字我不要的文字我不要的文字我不要的文字我不要的文字我
+    不要的文字我不要的文字我不要的文字</div>
+</body>
+<script>
+    function $(id){return document.getElementById(id)}
+    $("test").onmouseup=function(event){
+        var event=event||window.event;
+        var x=event.clientX;//鼠标的x坐标
+        var y=event.clientY;//
+        showBox(x,y);
+    };
+    function showBox(mousex,mousey){
+        $("demo").style.display="block";
+        $("demo").style.left=mousex+"px";
+        $("demo").style.top=mousey+"px";
+    }
+</script>
+</html>

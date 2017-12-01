@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>返回头部的小火箭</title>
+    <style>
+        body{  width: 2000px;}
+        .top{
+            /*display: none;*/
+            position: fixed;
+            right: 50px;
+            bottom: 100px;
+            display: none;
+        }
+    </style>
+    <script src="my.js"></script>
+    <script>
+        //scrollTo(x,y)
+        //window.scrollTo(15,15) 可把内容滚动到指定的坐标
+       window.onload=function(){
+            var main=$("main");
+            var goTop=$("goTop");
+            window.onscroll=function(){
+                scroll().top>0 ? show(goTop) : hide(goTop);
+                leader=scroll().top;
+            }
+           var leader= 0,target= 0,timer=null;
+           goTop.onclick=function(){
+               target=0;
+               timer=setInterval(function(){
+                   leader=leader+(target-leader)/10;
+                   window.scrollTo(0,leader);
+                   if (leader==target){
+                       clearInterval(timer);
+                   }
+               },30)
+           }
+        }
+    </script>
+</head>
+<body>
+<div class="top" id="goTop">
+    <img src="images/Top.jpg" alt="">
+</div>
+<div class="main" id="main">
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+    <p>你好，旧时光   你好，旧时光</p>
+</div>
+
+</body>
+</html>

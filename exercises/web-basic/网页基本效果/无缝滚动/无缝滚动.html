@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无缝滚动</title>
+    <style>
+        *{margin:0;padding:0;}
+        ul{list-style: none;}
+        img{vertical-align: top;}/*取消图片底部3像素距离*/
+        .box{
+            position: relative;
+            width: 600px;
+            height: 200px;
+            margin:100px auto;
+            background-color: pink;
+            overflow: hidden;
+        }
+        .box ul li{
+            float: left;
+        }
+        .box ul{
+            width: 400%;
+            position: absolute;
+            left:0;
+            top:0;
+        }
+    </style>
+    <script>
+        //无缝滚动原理：首先先复制两张图片(第一张和第二张)放在最后面
+        window.onload=function(){
+            var scroll=document.getElementById("scroll");
+            var ul=scroll.children[0];
+            var num=0;
+            var timer=null;
+            timer=setInterval(autoPlay,10);
+            function autoPlay(){
+                num--;
+                num<=-1200 ? num=0 : num;
+                ul.style.left=num+"px";
+            }
+            scroll.onmouseover=function(){
+                clearInterval(timer);//鼠标经过大盒子，停止定时器
+            };
+            scroll.onmouseout=function(){
+                timer=setInterval(autoPlay,10);//开启定时器
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div class="box" id="scroll">
+    <ul>
+        <li><img src="images/01.jpg" alt="" class="pic1"></li>
+        <li><img src="images/02.jpg" alt="" class="pic2"></li>
+        <li><img src="images/03.jpg" alt="" class="pic3"></li>
+        <li><img src="images/04.jpg" alt="" class="pic4"></li>
+        <li><img src="images/01.jpg" alt="" class="pic1"></li>
+        <li><img src="images/02.jpg" alt="" class="pic2"></li>
+    </ul>
+</div>
+</body>
+</html>

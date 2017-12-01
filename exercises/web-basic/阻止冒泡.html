@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>阻止冒泡</title>
+</head>
+<body>
+<button id="btn">点击</button>
+</body>
+<script>
+    //阻止冒泡的方法(标准浏览器和Ie浏览器)
+    //w3c的方法是 event.stopPropagation()
+    //ie则是使用event.cancelBubble=true;
+    var btn=document.getElementById("btn");
+    document.onclick=function(){
+        alert("点击了空白处");
+    }
+    btn.onclick=function(event){
+        alert("点击了按钮");
+        var event=event||window.event;
+        if (event && event.stopPropagation){
+            event.stopPropagation();
+        }else {
+            event.cancelBubble=true;
+        }
+
+    }
+</script>
+</html>

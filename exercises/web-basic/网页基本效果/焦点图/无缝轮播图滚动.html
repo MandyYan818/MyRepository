@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无缝轮播图滚动</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        ul,ol{list-style: none;}
+        img{vertical-align: top;}/*清除图片底部3像素*/
+        .slider{
+            position: relative;
+            width: 490px;
+            height: 170px;
+            border: 1px solid #ccc;
+            margin:100px auto;
+            padding: 5px;
+        }
+        .inner{
+            width: 100%;
+            height: 100%;
+            background-color: pink;
+            position: relative;
+            overflow: hidden;
+        }
+        .inner ul{
+            width: 1000%;
+            position: absolute;
+            left:0;
+            top:0;
+
+        }
+        .inner ul li{
+            float: left;
+        }
+        .slider ol{
+            position: absolute;
+            left:50%;
+            margin-left:-80px;
+            bottom: 10px;
+        }
+        .slider ol li{
+            float: left;
+            width: 18px;
+            height: 18px;
+            background-color: #fff;
+            margin-left:10px;
+            text-align: center;
+            line-height: 18px;
+            cursor: pointer;
+        }
+        .slider ol li.current {
+            background-color: orange;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var slider=document.getElementById("slider");
+            var ul=slider.children[0].children[0];
+            var ol=slider.children[1];
+            var olLis=ol.children;
+            for (var i=0;i<olLis.length;i++){
+                olLis[i].index=i;//每个li的索引号
+                olLis[i].onmouseover=function(){
+                    for (var j=0;j<olLis.length;j++){
+                        olLis[j].className="";
+                    }
+                    this.className="current";
+                    target=-this.index*490;//目标位置就是用当前索引号乘以一个盒子的宽度
+                }
+            }
+
+            var leader= 0,target=0;
+            setInterval(function(){
+                leader=leader+(target-leader)/10;
+                ul.style.left=leader+"px";
+            },100);
+            /*var timer=null;
+             var num=0;
+             setInterval(function (){
+             num--;
+             num<=-4200 ? num=0 : num;
+             pic.style.left=num+"px";
+             },100)*/
+        }
+
+    </script>
+</head>
+<body>
+<div class="slider" id="slider">
+    <div class="inner">
+        <ul>
+            <li><a href="#"><img src="images/01.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/02.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/03.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/04.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/05.jpg" alt=""></a></li>
+        </ul>
+    </div>
+    <ol>
+        <li class="current">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证文件格式是否正确</title>
+</head>
+<body>
+<input type="file" name="" id="File"><span></span><!--文件域-->
+</body>
+<script>
+    var file=document.getElementById("File");
+    file.onchange=function(){
+        //alert(this.value);// C:\fakepath\yunshi.png
+        var path=this.value;//得到的是现在的文件路径
+        var suxxif=path.substr(path.lastIndexOf(".")).toUpperCase();//得到的是后缀名
+        //alert(suxxif);
+        if(suxxif==".JPG"||suxxif==".PNG"){
+            this.nextSibling.innerHTML="格式正确";
+        }else {
+            this.nextSibling.innerHTML="格式错误";
+        }
+    }
+</script>
+</html>

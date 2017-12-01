@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>垂直滚动条</title>
+    <style>
+        *{margin:0;padding:0;}
+        .box{
+            position: relative;
+            width: 300px;
+            height: 500px;
+            border:1px solid red;
+            margin: 100px;
+            overflow: hidden;
+        }
+        .content{
+            position: absolute;
+            left:0;
+            top:0;
+            height:auto;
+            padding:5px 20px 5px 5px;
+        }
+        .scroll{
+            width: 18px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #eee;
+        }
+        .scroll span{
+            width: 100%;
+            height: 100px;
+            position: absolute;
+            top:0;
+            left: 0;
+            border-radius:5px;
+            background-color: darkred;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="content">
+        你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光
+        你好旧时光
+        你好旧时光
+        你好旧时光
+        你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+        你好旧时光你好旧时光
+    </div>
+    <div class="scroll">
+        <span></span>
+    </div>
+</div>
+</body>
+<script>
+    var box=document.getElementById("box");
+    var content=box.children[0];
+    var scroll=box.children[1];
+    var bar=scroll.children[0];
+
+    //滚动条的长度计算公式：(容器的高度/内容的高度*容器的高度)
+    var barHeight=box.offsetHeight/content.offsetHeight*box.offsetHeight;
+    bar.style.height=barHeight+"px";
+
+    startScroll(bar,content);// 第一个参数为拖动的，第二个参数为内容的盒子
+    function startScroll(obj,target){
+        obj.onmousedown=function(event){
+            var event=event||window.event;
+            var top=event.clientY-this.offsetTop;//红色盒子距离 父亲 盒子顶部距离
+            var that=this;//把obj对象赋给that
+            document.onmousemove=function(event){
+                var event=event||window.event;
+                var barTop=event.clientY-top;
+
+                //内容盒子移动的距离
+                // (内容盒子高度-大盒子高度)/(大盒子高度-红色盒子的高度)*红色盒子移动的数值
+                var contentTop=(target.offsetHeight-box.offsetHeight)/
+                        (box.offsetHeight-that.offsetHeight)*barTop;
+                if (barTop<0){
+                    barTop=0;
+                }else if(barTop>box.offsetHeight-that.offsetHeight)
+                //大盒子的高度-红色盒子的高度
+                {
+                    barTop=box.offsetHeight-that.offsetHeight;
+                }else {
+                    //内容盒子要移动距离
+                    target.style.top=-contentTop+"px";
+                }
+                that.style.top=barTop+"px";
+
+                window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+            }
+        };
+        bar.onmouseup=function(){
+            document.onmousemove=null;
+        }
+    }
+    //红色方块移动一像素，内容盒子移动几像素
+    //(内容盒子高度-大盒子高度)/(大盒子高度-红色盒子的高度)*红色盒子移动的数值
+    //滚动条滚动一次，内容移动的距离
+    //(内容的高度-容器的高度)*滚动条移动的距离/(容器的高度-滚动条的高度)
+
+</script>
+</html>

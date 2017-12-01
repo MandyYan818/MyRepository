@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击跟随鼠标</title>
+    <style>
+        #pic{
+            width: 88px;
+            position: absolute;
+            top:0;
+            left:0;
+        }
+    </style>
+</head>
+<body>
+<img src="img.jpg" alt="" id="pic">
+</body>
+<script>
+    var pic=document.getElementById("pic");
+    document.onclick=function(event){
+        var event=event||window.event;
+        targetX=event.clientX-pic.offsetWidth/2;
+        targetY=event.clientY-pic.offsetHeight/2;
+    };
+    //缓动
+    var leaderX= 0,leaderY= 0,targetX= 0,targetY=0;
+    setInterval(function(){
+        leaderX=leaderX+(targetX-leaderX)/10;
+        leaderY=leaderY+(targetY-leaderY)/10;
+        pic.style.left=leaderX+"px";
+        pic.style.top=leaderY+"px";
+    },5)
+</script>
+</html>
