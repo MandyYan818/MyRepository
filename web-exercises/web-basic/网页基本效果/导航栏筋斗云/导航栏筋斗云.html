@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航栏筋斗云</title>
+    <style>
+        *{margin:0;padding:0;}
+        ul{list-style: none;}
+        body{  background-color: #333;}
+        .box{
+            position: relative;
+            width: 800px;
+            height: 42px;
+            margin:100px auto;
+            border-radius: 5px;
+            background: url("images/rss.png") no-repeat right center #ffffff;
+        }
+        .cloud{
+            position: absolute;
+            width: 83px;
+            height: 42px;
+            left:0;
+            top:0;
+            background: url("images/cloud.gif") no-repeat;
+        }
+        .box ul{
+            position: absolute;
+            top:0;
+            left:0;
+        }
+        .box ul li{
+            float: left;
+            width: 83px;
+            height: 42px;
+            line-height: 42px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+    </style>
+    <script>
+        window.onload=function(){
+            var cloud=document.getElementById("cloud");
+            var nav=document.getElementById("nav");
+            var lis=nav.children[1].children;
+            var current=0; //用于存放点击时候的offsetLeft
+            for (var i=0;i<lis.length;i++){
+                lis[i].onmouseover=function(){
+                    //alert(this.offsetLeft);
+                    target=this.offsetLeft;
+                };
+                lis[i].onmouseout=function(){
+                    //target=0;
+                    target=current;
+                };
+                lis[i].onclick=function(){
+                    current=this.offsetLeft;//点击的时候存储一下当前的位置
+                }
+
+            }
+            //缓动公式
+            var leader= 0,target=0;
+            setInterval(function(){
+                leader=leader+(target-leader)/10;
+                target<=0 ? leader=0 : leader;
+                cloud.style.left=leader+"px";
+            },5);
+
+        }
+
+    </script>
+</head>
+<body>
+<nav class="box" id="nav">
+    <span class="cloud" id="cloud">
+    </span>
+    <ul>
+        <li>首页新闻</li>
+        <li>师资力量</li>
+        <li>活动策划</li>
+        <li>企业文化</li>
+        <li>招聘信息</li>
+        <li>公司简介</li>
+        <li>杭州校区</li>
+        <li>北京校区</li>
+    </ul>
+
+</nav>
+</body>
+</html>

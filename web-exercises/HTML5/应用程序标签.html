@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>应用程序标签</title>
+    <style>
+        /*.my_progress{
+            -webkit-appearance: none;
+        }*/
+    </style>
+</head>
+<body>
+<!--数据列表呈现需要载体-->
+<input type="text" list="input_list">
+<datalist id="input_list">
+    <option value="lf"></option>
+    <option value="yf"></option>
+    <option value="wk"></option>
+</datalist>
+<!--状态指示器-->
+<progress>
+</progress>
+<!--进度条默认最大值为1-->
+<progress class="my_progress" value="0.1"></progress>
+<progress value="10" max="100"></progress>
+<!--进度条展示数值-->
+<meter min="0" max="100" low="40" high="80" optimum="100" value="90">A+</meter>
+</body>
+</html>

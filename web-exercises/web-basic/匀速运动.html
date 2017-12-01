@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>匀速运动</title>
+    <style>
+        .box{
+            position: absolute;
+            top:100px;
+            left:0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var btn=document.getElementById("btn");
+            var box=document.getElementById("box");
+            var num=0;
+            var timer=null;//开启定时器
+
+            btn.onclick=function(){
+                timer=setInterval(function run(){
+                    num++;
+                    num>=500 ? num=0 : num;
+                    box.style.left=num+"px";
+                },100);
+            }
+        }
+    </script>
+</head>
+<body>
+<button id="btn">开始</button>
+<div id="box" class="box">
+    
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>运算符的几个面试题</title>
+</head>
+<body>
+
+</body>
+<script>
+    //a&&b 结果是？
+    //如果a为假，则返回a；如果a为真，则返回b
+    var aa=0 && 1;
+    console.log(aa);//0
+    var bb=1 && 0;
+    console.log(bb);//0
+    var cc=1 && 10;
+    console.log(cc);//10
+
+    //a||b 结果是？
+    //如果a为假，则返回b
+    //如果a为真，则返回a
+    console.log(0||1);//1
+    console.log(1||0);//1
+    console.log(1||5);//1
+    console.log(5||1);//5
+
+    //a&&b&&c 结果为？
+    var a=1 && 2 && 3;
+    console.log(a);//3
+    var b=0 && 1 && 2;
+    console.log(b);//0
+    var c=1 && 0 && 2;
+    console.log(c);//0
+
+    //a||b||c 结果为？
+    var aaa=0||1||2;
+    var bbb=1||0||3;
+    console.log(aaa);//1
+    console.log(bbb);//1
+
+    //混合运算 先&&后||
+    var a1=3 && 0 || 2;
+    var b1=3 || 0 && 2;
+    var c1=0 || 2 && 3;
+    console.log(a1);//2
+    console.log(b1);//3
+    console.log(c1);//3
+</script>
+</html>

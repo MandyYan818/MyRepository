@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日历</title>
+    <style>
+        .calender{
+            width: 180px;
+            height: 180px;
+            margin:100px auto;
+            background-color: deepskyblue;
+        }
+        .calender p{
+            text-align: center;
+            line-height: 60px;
+            font-size:12px;
+            color:white;
+        }
+        .calender span{
+            display: block;
+            width: 80px;
+            height: 80px;
+            background-color: yellowgreen;
+            color:black;
+            font-size: 50px;
+            margin:0 auto;
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload=function() {
+            var calender = document.getElementById("calender");
+            var boys = calender.children;
+
+            //日期函数
+            var arr = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+            var newDate = new Date();
+            boys[0].innerHTML = newDate.getFullYear() + "年" + (newDate.getMonth() + 1) + "月" +
+                    newDate.getDate() + "日" + " " + arr[newDate.getDay()];
+            boys[1].innerHTML = newDate.getDate();
+        };
+        /*
+        window.onload=function(){
+            function $(id){
+                return document.getElementById(id);
+            }
+            var day=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+            var calender_date=$("calender_date");
+            var date=$("date");
+            var newDate=new Date();
+            calender_date.innerHTML=newDate.getFullYear()+"-"+(newDate.getMonth()+1)+"-"+ newDate.getDate()+" "+
+                    day[newDate.getDay()];
+            date.innerHTML=newDate.getDate();
+        };
+        */
+
+    </script>
+</head>
+<body>
+<div class="calender" id="calender">
+    <p  class="calender_date" id="calender_date"></p>
+    <span class="date" id="date"></span>
+</div>
+</body>
+</html>

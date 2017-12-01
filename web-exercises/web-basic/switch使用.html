@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>switch使用</title>
+</head>
+<body>
+<input type="text" id="txt"><button id="btn">查询价格</button>
+<script>
+    window.onload=function(){
+        var txt=document.getElementById("txt");
+        var btn=document.getElementById("btn");
+        btn.onclick=function(){
+            var val=txt.value;
+            switch (val){
+                case "苹果":
+                     alert("苹果的价格是：5元");
+                break;
+                case "梨":
+                    alert("梨的价格为2元");
+                break;
+                case "香蕉":
+                    alert("香蕉的价格为3元");
+                break;
+                default:
+                alert("今天没货");
+
+            }
+        }
+    }
+</script>
+</body>
+</html>

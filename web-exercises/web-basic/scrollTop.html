@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scrollTop</title>
+    <style>
+        body{
+            height: 3000px;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+<script>
+    window.onscroll=function(){
+        console.log(12);
+        //兼容性写法
+        var scrollTop=window.pageXOffset||document.documentElement.scrollTop||
+                        document.body.scrollTop||0;
+        document.title=scrollTop;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

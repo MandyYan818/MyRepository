@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var data=[
+            {
+                name: '北京',
+                items: [
+                    {
+                        name: '北京',
+                        areaList: [{name: '东城区'}, {name: '西城区'}]
+                    }
+                ]
+            },
+            {
+                name: '浙江',
+                items: [
+                    {
+                        name: '杭州',
+                        areaList: [{name: '上城区'}, {name: '下城区'}]
+                    },
+                    {
+                        name: '宁波',
+                        areaList: [{name: '象山县'}]
+                    }
+
+                ]
+            }
+        ]
+
+        var addressInit = function(_cmbProvince, _cmbCity, _cmbArea, defaultProvince, defaultCity, defaultArea)
+        {
+            var cmbProvince = document.getElementById(_cmbProvince);
+            var cmbCity = document.getElementById(_cmbCity);
+            var cmbArea = document.getElementById(_cmbArea);
+
+            function cmbSelect(cmb, str)
+            {
+                for(var i=0; i<cmb.options.length; i++)
+                {
+                    if(cmb.options[i].value == str)
+                    {
+                        cmb.selectedIndex = i;
+                        return;
+                    }
+                }
+            }
+            function cmbAddOption(cmb, str, obj)
+            {
+                var option = document.createElement("OPTION");
+                cmb.options.add(option);
+                option.innerText = str;
+                option.value = str;
+                option.obj = obj;
+            }
+
+            function changeCity()
+            {
+                cmbArea.options.length = 0;
+                if(cmbCity.selectedIndex == -1)return;
+                var item = cmbCity.options[cmbCity.selectedIndex].obj;
+                for(var i=0; i<item.areaList.length; i++)
+                {
+                    cmbAddOption(cmbArea, item.areaList[i], null);
+                }
+                cmbSelect(cmbArea, defaultArea);
+            }
+            function changeProvince()
+            {
+                cmbCity.options.length = 0;
+                cmbCity.onchange = null;
+                if(cmbProvince.selectedIndex == -1)return;
+                var item = cmbProvince.options[cmbProvince.selectedIndex].obj;
+                for(var i=0; i<item.items.length; i++)
+                {
+                    cmbAddOption(cmbCity, item.items[i].name, item.items[i]);
+                }
+                cmbSelect(cmbCity, defaultCity);
+                changeCity();
+                cmbCity.onchange = changeCity;
+            }
+
+            for(var i=0; i<data.length; i++)
+            {
+                cmbAddOption(cmbProvince, data[i].name,data[i]);
+            }
+            cmbSelect(cmbProvince, defaultProvince);
+            changeProvince();
+            cmbProvince.onchange = changeProvince;
+        }
+    </script>
+</head>
+<body>
+    <select id="cmbProvince" name="cmbProvince"></select>
+    <select id="cmbCity" name="cmbCity"></select>
+    <select id="cmbArea" name="cmbArea"></select>
+
+
+    <script type="text/javascript">
+        addressInit('cmbProvince', 'cmbCity', 'cmbArea');
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型--代码解析</title>
+</head>
+<body>
+
+</body>
+<script>
+    function Student(name,age){
+        this.name=name;
+        this.age=age;
+    }
+    Student.prototype={
+        sayHello:function(){
+            console.log('hello');
+        }
+    };
+    var p=new Student('张三',19);
+    p.sayHello();
+    /*
+    * 代码分析：
+    * 1、首先预解析的过程，声明构造函数Student，同时创建Student.prototype
+    * 2、第一句话执行第15行代码，重新覆盖原型对象，原来的默认原型对象不再被指向
+    * 3、创建对象，new创建对象，，然后将对象的引用交给构造函数的this
+    * 4、在构造函数内部，利用对象的动态特性给刚刚创建出来的对象提供属性：name和age
+    *       构造函数在调用时传入参数，'张三'和19
+    *       因此对象的属性name为'张三',age为19
+    *       对象初始化完成以后，返回对象的'地址'给变量p
+    * 5、执行调用方法，p调用sayHello方法
+    *       首先在p所指向的对象中查看没有sayHello方法
+    *       然后在其原型对象，Student.prototype中查找（是新的原型对象）
+    *       在新的原型对象中有sayHello,因此调用它
+    *       在该方法中打印'hello'
+    *
+    * */
+</script>
+</html>

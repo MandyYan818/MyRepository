@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型-函数的原型属性</title>
+</head>
+<body>
+
+</body>
+<script>
+
+
+    function Person(name,age,gender){
+        this.name=name;
+        this.age=age;
+        this.gender=gender;
+    }
+    Person.prototype.sayHi=function (){
+        console.log('你好'+this.name);
+    };
+    var p1=new Person('张三',19,'male');
+    console.log(p1);
+    //console.log(p1.sayHi());
+</script>
+</html>

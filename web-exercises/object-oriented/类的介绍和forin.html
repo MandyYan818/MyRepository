@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类的介绍和forin</title>
+</head>
+<body>
+<script>
+    var arr = new Array();
+    //输出对象的属性和方法
+    //  有些系统提供的对象的属性和方法无法遍历，原因是属性和方法设置为不可遍历
+    // for(var key in arr){
+    // key对象的属性 键
+    // console.log(key);
+    // }
+
+
+    //对象字面量
+   /* var a = {
+        name: "lf",
+        age: 20,
+        sex: 1,
+        sayHi: function () {
+            console.log("你好，我是" + this.name);
+        }
+    };
+    console.log(a);  //一般为测试用
+    //遍历对象的属性和方法  for in
+    for (var key in a) {
+        console.log(key); //输出a对象的属性和方法
+        console.log(a.key);//输出a对象的属性和方法的值
+    }*/
+
+    //forin 练习
+    var obj={};//等同于var obj=new Object();
+    for(var i=0;i<10;i++){
+        obj[i]=i*2;
+    }
+    for(var key in obj){
+        console.log(key+"=="+obj[key]);
+    }
+
+
+
+</script>
+
+</body>
+</html>

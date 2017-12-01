@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复杂类型</title>
+</head>
+<body>
+<script>
+    /*function Student(name,age,score){
+        this.name=name;
+        this.age=age;
+        this.score=score;
+    }
+    var s1=new Student("lf",20,100);
+    var s2=s1;
+    console.log(s2.name);//输出 lf
+    s1.name="yf";
+    console.log(s2.name);//输出 yf  */
+
+
+    //基本类型作为函数的参数
+    /*function f1(a){
+        a=100;
+    }
+    var x=1;
+    f1(x);
+    console.log(x); //输出结果为1*/
+    //复杂类型作为函数的参数
+    /*function Student(name,age,score){
+        this.name=name;
+        this.age=age;
+        this.score=score;
+    }
+    function f2(stu){
+        stu.name="xxx";
+    }
+    var s=new Student("lf",20,100);
+    f2(s);
+    console.log(s.name);//输出结果为xxx*/
+
+    //
+   /* function Student(name,age,score){
+        this.name=name;
+        this.age=age;
+        this.score=score;
+    }
+    function f2(stu){
+        stu=new Student();
+        stu.name="xxx";
+    }
+    var s=new Student("lf",20,100);
+    f2(s);
+    console.log(s.name);//输出结果为 lf*/
+
+
+    /*function f3(arr){
+        arr[0]=-100;
+    }
+    var array=[3,1,6,8];
+    f3(array);
+    console.log(array);//输出结果为Array[-100,1,6,8]*/
+
+
+
+</script>
+
+</body>
+</html>

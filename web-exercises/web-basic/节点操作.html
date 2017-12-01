@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点操作</title>
+    <style>
+        ul{
+            background-color: #cccccc;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var demo=document.getElementById("demo");
+            var demo_ol=document.getElementById("demo_ol");
+            var btn=document.getElementsByTagName("button")[0];
+            btn.onclick=function(){
+                for (var i=0;i<demo.children.length;i++){
+                    var newLi=document.createElement("li");
+                    demo_ol.appendChild(newLi);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<button>点击</button>
+<ul id="demo">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+
+</ul>
+<ol id="demo_ol">
+
+</ol>
+
+</body>
+</html>

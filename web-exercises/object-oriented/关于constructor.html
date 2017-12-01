@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关于constructor</title>
+</head>
+<body>
+细节问题
+
+使用点语法给原型添加成员与使用直接替换修改原型对象有什么区别？
+1、原型指向发生了变化
+2、构造函数所创建的对象所继承的原型不同
+3、新增的对象默认是没有constructor属性
+注意：在使用替换的方式修改原型的时候，一般都会添加constructor属性
+
+function Person(){}
+Person.prototype={
+constructor:Person;
+};
+//拆解
+function Person(){}
+var o={};
+o.constructor=Person;//属性中就存储着函数的地址
+Person.prototype=o;
+Person=123;//对结果没有影响
+
+</body>
+<!--<script>
+    function Person(){
+//        if (...){
+//          return new this.constructor();
+//            //return new Person();
+//        }
+    }
+    Person=123;
+    var p1=new Person();
+    //构造函数在调用时，根据不同的参数创建不同的对象
+    //$()
+    //字符串：html字符串，选择器
+    //dom:包装成jq对象
+    //jq对象：便于操作
+
+    //有时候根据需要在构造函数的内部还会调用构造函数
+
+</script>-->
+<script>
+
+    //使用点语法给原型添加成员，此时p1默认是没有constructor属性
+   /* var Person=function(){};
+    Person.prototype={function(){
+        console.log('你好');
+    }};
+    var p1=new Person(); //在控制台输入Person.prototype,没有constructor属性  */
+
+    //改良后
+    var Person=function(){};
+    Person.prototype={function(){
+        console.log('你好');
+    },constructor:Person};
+    var p1=new Person(); //在控制台输入Person.prototype,有constructor属性
+
+
+    //使用直接替换修改原型对象
+    var Func=function(){};
+    var f1=new Func();//在控制台输入Func.prototype,有constructor属性
+
+</script>
+</html>

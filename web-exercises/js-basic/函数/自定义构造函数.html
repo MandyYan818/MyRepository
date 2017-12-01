@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义构造函数</title>
+</head>
+<body>
+<script>
+    //自定义构造函数 构造函数：构造一个对象，并且返回的函数。
+    //调用构造函数 var student=new Object(); 自动创建了对象
+        //a.构造函数的目的是用来创建对象
+        //b.使用new Object()创建对象
+        //c.封装函数创建多个对象
+        //d.自定义构造函数
+
+    function Student(name,age,sex,score){
+        //对象的属性
+        this.name=name;
+        this.age=age;
+        this.sex=sex;
+        this.score=score;
+        //对象的方法
+        this.sayHi=function(){
+            console.log("你好，我是"+this.name);
+        }
+    }
+
+    //1、内存开辟空间，存储新创建的对象new Object();
+    //2、会把this设置为当前对象
+    //3、执行函数内部的代码，设置对象的属性和方法
+    //4、返回新创建的对象
+    var s1=new Student("lf",20,1,100);
+    var s2=new Student("yf",18,0,90);
+
+    s1.sayHi();
+    s2.sayHi();
+
+    //this
+    //   a.函数中的this
+    //      i.this是当前调用函数的对象
+    //   b.构造函数中的this
+    //      i.当前构造函数创建的对象
+</script>
+
+</body>
+</html>

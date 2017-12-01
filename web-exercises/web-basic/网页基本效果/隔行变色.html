@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>隔行变色</title>
+    <style>
+        li{
+            line-height:30px;
+            list-style: none;
+        }
+        li span{
+            margin:5px;
+        }
+        .current{
+            background-color: #ccc !important;
+        }
+        
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li>
+            <span>上证指数</span><span>23</span><span>12</span><span>56</span>
+        </li>
+        <li>
+            <span>上证指数</span><span>23</span><span>12</span><span>56</span>
+        </li>
+        <li>
+            <span>上证指数</span><span>23</span><span>12</span><span>56</span>
+        </li>
+        <li>
+            <span>上证指数</span><span>23</span><span>12</span><span>56</span>
+        </li>
+        <li>
+            <span>上证指数</span><span>23</span><span>12</span><span>56</span>
+        </li>
+        <li>
+            <span>上证指数</span><span>23</span><span>12</span><span>56</span>
+        </li>
+        <li>
+            <span>上证指数</span><span>23</span><span>12</span><span>56</span>
+        </li>
+        <li>
+            <span>上证指数</span><span>23</span><span>12</span><span>56</span>
+        </li>
+    </ul>
+</div>
+<script>
+    window.onload=function(){
+        var list=document.getElementsByTagName("li");
+        for(var i=0;i<list.length;i++){
+            if(i%2!=0){
+                list[i].style.backgroundColor="gray";
+            } //只有偶数行变色
+            //鼠标经过时，行变色
+            list[i].onmouseover=function(){
+                this.className="current";
+            }
+            list[i].onmouseout=function(){
+                this.className="";
+            }
+        }
+
+    }
+</script>
+
+</body>
+</html>

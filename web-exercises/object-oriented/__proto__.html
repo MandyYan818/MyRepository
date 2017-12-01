@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>__proto__</title>
+</head>
+<body>
+__proto__
+以前要访问原型，必须使用构造函数来实现，无法直接使用实例对象来访问原型
+火狐最早引入属性'__proto__'表示使用实例对象引用原型，但是早期是非标准的
+通过该属性可以允许使用实例对象直接访问原型
+
+    function Person(){}
+    //  神秘对象就是Person.prototype
+    //那么只有使用构造函数才可以访问它
+    var p=new Person();
+    //以前不能直接使用p来访问神秘对象
+    //现在有了__proto__后
+    //p.__proto__也可以直接访问神秘对象（两个下划线）
+    //那么p.__proto__===Person.prototype
+
+    1、神秘对象中默认都有一个属性' constructor'，翻译为构造器，表示该
+是与什么构造函数联系起来的。
+    2、'__proto__'的作用？
+    可以访问原型
+    由于在开发中除非特殊要求，不要用实例去修改原型的成员，因此属性开发时使用较少
+    但是在调试过程中非常方便，可以轻易的访问原型进行查看成员。
+    3、如果在早期的浏览器中使用实例需要访问原型如何处理
+        可以使用实例对象访问构造器，然后使用构造器访问原型
+    var p=new Person();
+    p.constructor.prototype;
+</body>
+<script>
+    function Person(){}
+    //  神秘对象就是Person.prototype
+    //那么只有使用构造函数才可以访问它
+    var p=new Person();
+    //以前不能直接使用p来访问神秘对象
+    //现在有了__proto__后
+    //p.__proto__也可以直接访问神秘对象（两个下划线）
+    p.__proto__===Person.prototype;//true
+</script>
+</html>

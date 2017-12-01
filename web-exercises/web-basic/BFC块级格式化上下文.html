@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BFC块级格式化上下文</title>
+    <style>
+        .content{
+            width: 500px;
+            height: 400px;
+        }
+        .floated{
+            float: left;
+            width: 50px;
+            height: 100px;
+            background-color: pink;
+        }
+        p{
+            width:100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <div class="floated">你好</div><p>ns;afjojilaij;oaj;jwr;okkkkkkkkfl;
+        kafjfddassssssskkkkkkkkkkkkkkkkk
+        kkkkkkkkkkkkkkkkkkkkkkkkk
+        kkkkkkkkkkkkkkkkkkkkkkkkkkk
+        kkkkkkkkkkkkkkkkk
+        kkkkkkkkkkkkkkkkkkkkkk
+        kkkkkkkkkkkkkkkkkkkkkkkk
+        kkkkkkkkkkkkkkkkkkkkkkkkkkk
+        kkkkkkkkkkkkkkkkkkkkkkkk
+        kkkkkkkkkkkkkkkkkkkkkkkkkkkk
+        kkkkkkkkkkkkkkk
+    </p>
+</div>
+</body>
+</html>

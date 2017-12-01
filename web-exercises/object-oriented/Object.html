@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object</title>
+</head>
+<body>
+
+
+</body>
+<script>
+    /*
+    Object.create方法
+     是ES5中引入的新方法 语法：
+     Object.create(对象)->新对象
+     功能：返回的新对象，原型就是参数中表示的对象
+    */
+    //例如
+    var o={
+        sayHello:function(){console.log('你好');}
+    };
+    //创建一个新对象o1,该新对象的原型即__proto__就是o
+    var o1=Object.create(o);
+
+    //创建一个对象，具有数组的方法，并存储数字，遍历出来
+    var itcastArr=Object.create([]);
+    //1、存储数据
+    itcastArr.push(1);
+    itcastArr.push(2);
+    itcastArr.push(3,4,5,6);
+    //2、遍历
+    for (var i=0;i<itcastArr.length;i++){
+        console.log('['+i+']='+itcastArr[i]);
+    }
+
+    //如果浏览器不支持Object.create怎么办
+    //不要修改内置的对象
+   /* if (!Object.create){
+        Object.create=function (){}
+    }*/
+
+    //该函数要实现原型继承，返回的对象应该继承自obj
+    function inherit(obj){
+        if (Object.create){
+            return Object.create(obj);
+        }else {
+            function F(){}
+            F.prototype=obj;
+            return new F();
+        }
+    }
+    var arr=inherit([]);
+</script>
+</html>

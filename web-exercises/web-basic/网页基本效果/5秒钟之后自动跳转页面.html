@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5秒钟之后跳转页面</title>
+</head>
+<body>
+<div id="demo"></div>
+</body>
+<script>
+    var demo=document.getElementById("demo");
+    var count=5;
+    var speed=1000;
+    setTimeout(goIndexPage,speed);//1秒钟后去执行goIndexPage函数
+    function goIndexPage(){
+        count--;
+        demo.innerHTML="<a href='http://www.baidu.com'>本页面将在第"+count+"秒后跳转到首页</a>";
+        if (count<=0){
+            window.location.href="http://www.baidu.com";
+        }else {
+            //setTimeout(goIndexPage,speed);//递归调用
+            setTimeout(arguments.callee,speed);//arguments.callee表示正在执行的这个函数
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>offsetParent</title>
+    <style>
+        #fa{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="gf">
+    <div id="fa">
+        <div id="son"></div>
+    </div>
+</div>
+</body>
+<script>
+    var son=document.getElementById("son");
+    //alert(son.offsetParent.tagName);//BODY   当前的父盒子全都没有定位
+    alert(son.offsetParent.id);//fa  当父盒子有定位时
+    alert(son.parentNode.id);//fa
+
+    /*
+    * offsetLeft 与style.left的区别
+    * 最重要的区别是style.left只能得到行内样式
+    *
+    * .offsetWidth可以得到值，但是不能更改值
+    * .style.width可以得到行内的值，也可以更改值
+    * */
+</script>
+</html>

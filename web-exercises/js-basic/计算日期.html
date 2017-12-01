@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算星期几</title>
+    <script>
+        /*var date = new Date();
+        var weekday=new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+        alert(weekday[date.getDay()]);*/
+        var date=new Date();
+        var week=new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+        var weekday=parseInt(prompt("几天后"));
+        var xingqi= week[(weekday%7+date.getDay())%7];
+        alert(weekday+"天后是"+xingqi);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>笔试题验证</title>
+
+</head>
+<body>
+
+</body>
+<script>
+    /*function test() {
+     var n = 4399;
+
+     function add() {
+     n++;
+     console.log(n);
+     }
+
+     return {n: n, add: add}
+     }
+     var result=test();
+     var result2=test();
+     result.add();
+     result.add();
+     console.log(result.n);
+     result2.add(); //输出结果为 4400 4401 4399 4400*/
+
+    /*var a=10;
+     function fun(){
+     var b=20;
+     function subfun(){
+     console.log(a+b);
+     }
+     return subfun;
+     }
+     var x=fun();
+     var b=30;
+     x();    //30*/
+
+    /*var a=10,b= 0,c;
+     var bar=function(a){
+     var b=5;
+     fn(a+b);
+     };
+     var fn=function(a){
+     var c=5;
+     console.log(a+b+c);
+     };
+     bar(a); //20  */
+
+    /* var obj={a:1,b:function(){alert(this.a)}};
+     var fun=obj.b;
+     fun();  //弹出undefined  */
+
+    /*for (var i=0;i<5;++i){
+     setTimeout(function(){console.log(i+'');},100);
+     }   // 5 5 5 5 5  */
+
+    /*var a="undefined";
+     var b="false";
+     var c="";
+
+     function assert(aVar){
+     if (aVar){
+     alert(true);
+     }else {
+     alert(false);
+     }
+     }
+     assert(a);  //true
+     assert(b);  //true
+     assert(c);  //false   */
+
+    /*var bb=1;
+     function aa(bb){
+     bb=2;
+     alert(bb);
+     }
+     aa(bb);  // 2
+     alert(bb);  //  1  */
+
+    /*var arrTemp=[1,2,3];
+     arrTemp.shift();
+     arrTemp.push(1);
+     arrTemp.unshift(2);
+     var arrNew=arrTemp.concat([1,2]);
+     console.log(arrNew); //[ 2, 2, 3, 1, 1, 2 ]  */
+
+    /*var arr=[];
+     arr[0]=0;
+     arr[1]=1;
+     arr.foo='c';
+     console.log(arr.length);  // 2  */
+
+    /*var x=new Boolean(false);
+     if (x){
+     alert('hi');
+     }
+     var y=Boolean(0);
+     if (y){
+     alert('hello');
+     }   // hi  */
+
+    /*var x={a:10,b:20};
+     var y={a:40,c:50};
+     y._proto_ = x;
+     console.log(y.a); //40
+     console.log(y.b); //20
+     console.log(y.c); //50  */
+
+    /* function foo(x,y,z){
+     console.log(foo.length);  //3
+     console.log(arguments.length);  //2
+     }
+     foo(1,2);  */
+
+    /*var x=10;
+     function fn(y){
+     console.log(x+y);
+     }
+     function show(f){
+     var x=20;
+     var b=9;
+     f(b);
+     }
+     show(fn);  //19  */
+
+
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对比三个宽度</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            margin: 100px;
+            padding: 20px;
+            border-left:15px solid red;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+
+</div>
+</body>
+<script>
+    var box=document.getElementById("box");
+    console.log("offsetWidth:"+box.offsetWidth);
+    console.log("clientWidth:"+box.clientWidth);
+    console.log("scrollWidth:"+box.scrollWidth);
+</script>
+</html>

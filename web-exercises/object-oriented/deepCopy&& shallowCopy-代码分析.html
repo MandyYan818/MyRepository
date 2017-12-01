@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>深拷贝与浅拷贝-代码分析</title>
+</head>
+<body>
+<script>
+    //深拷贝
+    var deepCopy =function(){
+        //1、创建一个对象
+        var temp={};
+        //2、拷贝属性，在判断如果是引用类型需要深拷贝
+        for(var k in this){
+            if(typeof this[k]==='object'){
+                temp[k]=this[k].deepCopy();
+            }else {
+                temp[k]=this[k];
+            }
+            //temp[k]=this[k];
+        }
+        //3、返回对象
+        return temp;
+    }
+
+    var car={name:'法拉利'};
+    var p={name:'张三',age:'19',gender:'男',car:car};
+
+    //让所有对象都有拷贝的方法
+    car.deepCopy=deepCopy; //(给对象增加了一个属性或修改了对象的属性)
+    p.deepCopy=deepCopy;//(给对象增加了一个属性或修改了对象的属性)
+    var newP= p.deepCopy();
+
+    p.name='李四';
+    p.age=20;
+    p.gender='女';
+    p.car.name='兰博基尼';
+</script>
+
+</body>
+</html>

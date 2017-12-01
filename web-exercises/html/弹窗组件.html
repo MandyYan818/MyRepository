@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片上传的弹窗组件</title>
+    <style type="text/css">
+        .tanchaung{
+            width:668px;
+            height:608px;
+            border-radius:5px;
+            border:1px solid #ccc;
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin:-334px 0 0 -304px;
+        }
+        .tanchaung input{
+            width:90px;
+            height:40px;
+            margin-bottom: 140px;
+            background-color: pink;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="tanchaung" id="tanchaung">
+        <form action="#" method="POST">
+
+            <fieldset>
+                <input type="file" name="pic1" id="pic1" onchange="preview(this)" multiple="multiple"
+                       accept="image/x-png, image/jpg, image/jpeg, image/gif">
+                <img src="html/pics.jpg" ></img>
+                <br><br>
+            </fieldset>
+        <input type="button" value="上传">
+    </div>
+    <script>
+
+    </script>
+
+</body>
+</html>

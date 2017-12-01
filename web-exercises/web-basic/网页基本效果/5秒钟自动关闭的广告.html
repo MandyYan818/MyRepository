@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5秒钟自动关闭的广告</title>
+    <style>
+        img{
+            position: absolute;
+            top:0;
+        }
+        #left{
+            left:0;
+        }
+        #right{
+            right:0;
+        }
+    </style>
+</head>
+<body>
+<img src="images/1.gif" alt="" id="left">
+<img src="images/2.gif" alt="" id="right">
+</body>
+<script>
+
+    function $(id){
+        return document.getElementById(id);
+    }
+    function hide(id){
+        $(id).style.display="none";
+    }
+    function show(id){
+        $(id).style.display="block";
+    }
+    setTimeout(closed,5000);
+    function closed(){
+        hide("left");
+        hide("right");
+    }
+</script>
+</html>

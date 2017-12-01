@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>保留两位小数</title>
+</head>
+<body>
+
+</body>
+<script>
+    //var PI=3.141592653;//常量大写
+    var PI=1213.141592653;
+    var str=PI+"";//因为数字无法进行字符操作，先转换
+    console.log(str.substr(0,str.indexOf(".")+3));//取两位小数 1213.14
+    console.log(parseInt(PI*100)/100);
+    console.log(PI.toFixed(2));
+
+</script>
+</html>

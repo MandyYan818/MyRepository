@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>缓动动画</title>
+    <style>
+        .box{
+            position: absolute;
+            top:100px;
+            left:0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">开始</button>
+<div id="box" class="box">
+</body>
+<script>
+    /*
+    * 缓动动画公式：
+    *     一个盒子初始值是0 要走到400px的位置
+    *     假如说，初始值 leader 0 target 400
+    *     box.style.left=xxx+"px"
+    *     leader=leader+(target-leader)/10; //实现减速效果 */
+
+    var btn=document.getElementById("btn");
+    var box=document.getElementById("box");
+    var leader=0;
+    var target=100;
+    btn.onclick=function(){
+        setInterval(function run(){
+            leader+=(target-leader)/10;
+            box.style.left=leader+"px";
+        },100)
+    }
+
+</script>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型的使用方法</title>
+</head>
+<body>
+1、利用对象的动态特性
+    构造函数.prototype.xxx=vvv;
+    function Person(){
+        this.name='张三';
+    }
+    Person.prototype.sayHello=function(){
+    };
+    var p=new Person();
+
+2、利用直接替换
+    Student.prototype={
+        sayHello:function (){},
+        study:function (){}
+    };
+</body>
+</html>

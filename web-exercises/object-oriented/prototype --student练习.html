@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型-student练习</title>
+</head>
+<body>
+
+</body>
+<script>
+    function Student(name,age,gender){
+        this.name=name;
+        this.age=age;
+        this.gender=gender;
+    }
+    Student.prototype.sayHi=function(){
+        console.log('哈喽');
+    };
+    Student.prototype.study=function(){
+        console.log('学习');
+    };
+    var s1=new Student();
+    s1.sayHi();
+    s1.study();
+
+</script>
+</html>
