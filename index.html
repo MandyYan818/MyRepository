@@ -3,82 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <title>颜凤个人小作品</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css" media="all"/>
 
-    <style type="text/css">
-        .main{
-            width: 350px;
-            height: auto;
-            margin:0 auto;
-            margin-top:100px;
-            border:3px solid #99CCFF;
-            border-radius:5%;
-            overflow: hidden;
-
-        }
-
-        .main li{
-            list-style:none;
-        }
-
-        .main span{
-            display: block;
-            height:50px;
-            text-align: center;
-            color: white;
-            font-size: 18px;
-            cursor: pointer;
-            background-color: #99CCFF;
-        }
-        .main span:hover{
-            background-color: #FFCC99;
-        }
-
-        .main a{
-            text-decoration: none;
-            color: #686868;
-            cursor: pointer;
-        }
-        .main a:hover{
-            color:red;
-        }
-
-    </style>
-    <script src="jquery-1.11.1.min.js"></script>
-
-    <script>
-        $(function(){
-            $(".main ul").hide();
-            $(".main span").click(function(){
-                $(".main ul").show();
-
-            });
-
-        });
-    </script>
 </head>
 <body>
-    <div class="main">
-
-            <span>表单部分</span>
-            <ul>
-                <li><a href="zhihu/zhihu_signup.html">仿知乎注册页面</a></li>
-                <li><a href="zhihu/zhihu_signin.html">仿知乎登录页面</a></li>
-            </ul>
-
-            <span>jquery 动画实例</span>
-            <ul>
-                <li><a href="jquery-items/lunbo.html">轮播图</a></li>
-                <li><a href="jquery-items/cengji.html">层级轮播图</a></li>
-                <li><a href="jquery-items/liangce guanggao.html">两侧弹出的广告</a></li>
-                <li><a href="jquery-items/taobao.html">淘宝精品广告</a></li>
-            </ul>
-
-            <span>综合实例</span>
-            <ul>
-                <li><a href="JDong/index.html">仿京东首页</a></li>
-            </ul>
-
-
-    </div>
+<div class="wrap shadow">
+    <ol id="ol" class="list">
+    </ol>
+</div>
 </body>
+<script>
+
+    var str = '',
+            data = [
+                [
+                    {title: '第一 表单常用代码'},
+                    {url: 'zhihu/zhihu_signup.html', title: '仿知乎注册页面'},
+                    {url: 'zhihu/zhihu_signin.html', title: '仿知乎登录页面'}
+                ],
+
+                [
+                    {title: '第二 js基本特效'},
+                    {url: 'js-animation/clock/clock.html', title: '时钟效果'},
+                    {url: 'js-animation/Magnifier/Magnifier.html', title: '放大镜效果'},
+                    {url: 'js-animation/nav-animation/nav.html', title: '导航栏鼠标移动效果'},
+                    {url: 'js-animation/pic-timer/pic-timer.html', title: '图片定时器效果'},
+                    {url: 'js-animation/constellation/constellation.html', title: '星座运势'},
+                    {url:'js-animation/carousel-figure/carousel-figure.html',title:'无缝滚动轮播图'},
+                    {url:'js-animation/focus-figure/focus-figure.html',title:'左右焦点图'}
+                ],
+
+                [
+                    {title: '第三 jquery 动画实例'},
+                    {url: 'jquery-items/cengji.html', title: '层级轮播图'},
+                    {url: 'jquery-items/liangce guanggao.html', title: '两侧弹出的广告'},
+                    {url: 'jquery-items/taobao.html', title: '淘宝精品广告'}
+                ],
+
+                [
+                    {title: '综合实例'},
+                    {url: 'JDong/index.html', title: '仿京东首页'}
+                ]
+
+            ];
+    for (var i = 0; i < data.length; i++) {
+        var items = data[i];
+        var sub = '';
+        for (var j = 0; j < items.length; j++) {
+            var son = items[j];
+            if (j == 0) {
+                sub += '<li><h1><a href="javascript:;" title="' + son.title + '">' + son.title + '</a></h1>' +
+                        '<dl class="sub-dl">';
+            } else {
+                sub += '<dd><a href="' + son.url + '" target="_blank" title="' + son.title + '">' +
+                        son.title + '</a></dd>';
+            }
+            if (j == items.length - 1) {
+                sub += '</dl></li>';
+            }
+        }
+        str += sub;
+    }
+    var ol = document.getElementById('ol');
+    ol.innerHTML = str;
+    var h1 = ol.getElementsByTagName('h1');
+    var dl = ol.getElementsByTagName('dl');
+    var tmp = -1;
+    var open = false;
+    for (var i = 0; i < h1.length; i++) {
+        h1[i].index = i;
+        h1[i].onclick = function () {
+            for (var i = 0; i < h1.length; i++) {
+                dl[i].style.display = 'none';
+            }
+            if (tmp == this.index && open) {
+                dl[this.index].style.display = 'none';
+                open = false;
+            } else {
+                dl[this.index].style.display = 'block';
+                open = true;
+            }
+            tmp = this.index;
+        }
+    }
+
+</script>
 </html>
